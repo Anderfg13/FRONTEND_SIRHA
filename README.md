@@ -3,7 +3,7 @@
 **Este proyecto se creó con el siguiente comando en la terminal:**
 
 ```bash
-npx create-react-app usermanagement
+npx create-react-app sirha
 ```
 
 > Nota: Al crear el proyecto, es importante que el nombre esté en **minúsculas** debido a las restricciones de **npm**.
