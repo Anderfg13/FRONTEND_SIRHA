@@ -10,6 +10,8 @@ SIRHA-Front es la interfaz de usuario para la gestión de solicitudes de cambios
 - [Integrantes](#integrantes)
 - [Caso de Negocio](#caso-de-negocio)
 - [Tecnologías Utilizadas](#tecnologías-utilizadas-)
+- [Estructura del Proyecto](#estructura-del-proyecto-)
+
 
 ## Integrantes
 
@@ -25,6 +27,28 @@ SIRHA-Front es la interfaz de usuario para la gestión de solicitudes de cambios
 
 - **React**: Biblioteca principal para la construcción de la interfaz de usuario
 - **CSS**: Estilos personalizados para la interfaz de usuario
+
+
+## Estructura del Proyecto 📁
+
+```
+src/
+├── assets/           # Recursos estáticos (imágenes, fuentes)
+├── components/       # Componentes reutilizables
+│   ├── common/       # Componentes UI base (Button, Input, etc.)
+│   ├── layout/       # Componentes de estructura (Header, Footer, etc.)
+│   ├── charts/       # Componentes de visualización con D3
+│   └── forms/        # Componentes de formulario
+├── containers/       # Componentes contenedores con lógica de negocio
+├── context/          # Contextos para estado global (Auth, Theme, etc.)
+├── hooks/            # Hooks personalizados
+├── pages/            # Componentes de página completa
+├── services/         # Servicios para comunicación con API
+├── utils/            # Funciones de utilidad
+├── App.js            # Componente principal
+├── index.js          # Punto de entrada
+└── routes.js         # Configuración de rutas
+```
 
 ---
 **Este proyecto se creó con el siguiente comando en la terminal:**
