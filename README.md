@@ -1,5 +1,56 @@
-# Creación del Proyecto - SIRHA
+# SIRHA - FRONT: Sistema Academico de Solicitudes de Horarios
 
+![React](https://img.shields.io/badge/React-18.2.0-blue)
+![License](https://img.shields.io/badge/license-MIT-blue)
+
+SIRHA-Front es la interfaz de usuario para la gestión de solicitudes de cambios de horarios, o de solicitud de materias. Esta aplicación React permite al estudiante pedir una modificación de su horario academico a traves de solicitudes (Cambio de grupo, cambio de materia), aparte de visualizar su horario actual o de semestres academicos pasados.
+
+## Tabla de Contenidos 📋
+
+- [Integrantes](#integrantes)
+- [Caso de Negocio](#caso-de-negocio)
+- [Tecnologías Utilizadas](#tecnologías-utilizadas-)
+- [Estructura del Proyecto](#estructura-del-proyecto-)
+
+
+## Integrantes
+
+-Anderson Fabian Garcia Nieto
+-David Alejandro Patacon Henao 
+-Felipe Eduardo Calviche Gallego
+-Jared Sebastian Farfan Guevara
+-Kevin Arturo Cuitiva Pardo
+-Maria Paula Rodriguez Muñoz
+
+
+## Tecnologías Utilizadas 🛠
+
+- **React**: Biblioteca principal para la construcción de la interfaz de usuario
+- **CSS**: Estilos personalizados para la interfaz de usuario
+
+
+## Estructura del Proyecto 📁
+
+```
+src/
+├── assets/           # Recursos estáticos (imágenes, fuentes)
+├── components/       # Componentes reutilizables
+│   ├── common/       # Componentes UI base (Button, Input, etc.)
+│   ├── layout/       # Componentes de estructura (Header, Footer, etc.)
+│   ├── charts/       # Componentes de visualización con D3
+│   └── forms/        # Componentes de formulario
+├── containers/       # Componentes contenedores con lógica de negocio
+├── context/          # Contextos para estado global (Auth, Theme, etc.)
+├── hooks/            # Hooks personalizados
+├── pages/            # Componentes de página completa
+├── services/         # Servicios para comunicación con API
+├── utils/            # Funciones de utilidad
+├── App.js            # Componente principal
+├── index.js          # Punto de entrada
+└── routes.js         # Configuración de rutas
+```
+
+---
 **Este proyecto se creó con el siguiente comando en la terminal:**
 
 ```bash
