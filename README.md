@@ -11,17 +11,20 @@ SIRHA-Front es la interfaz de usuario para la gestión de solicitudes de cambios
 - [Caso de Negocio](#caso-de-negocio)
 - [Tecnologías Utilizadas](#tecnologías-utilizadas-)
 - [Estructura del Proyecto](#estructura-del-proyecto-)
+- [Estrategia de versionamiento](#estrategia-de-versionamiento)
 
 
 ## Integrantes
 
--Anderson Fabian Garcia Nieto
--David Alejandro Patacon Henao 
--Felipe Eduardo Calviche Gallego
--Jared Sebastian Farfan Guevara
--Kevin Arturo Cuitiva Pardo
--Maria Paula Rodriguez Muñoz
+- Anderson Fabian Garcia Nieto
+- David Alejandro Patacon Henao 
+- Felipe Eduardo Calviche Gallego
+- Jared Sebastian Farfan Guevara
+- Kevin Arturo Cuitiva Pardo
+- Maria Paula Rodriguez Muñoz
 
+## Caso de Negocio
+El objetivo principal es darles a estudiantes, profesores y decanaturas una plataforma con herramientas claras para crear, evaluar y aprobar/rechazar solicitudes de cambio de horarios, optimizando la gestión académica y reduciendo conflictos de cupos y cargas.
 
 ## Tecnologías Utilizadas 🛠
 
@@ -53,6 +56,15 @@ src/
 ## Prototipo Bajo nivel
 
 ![Prototipo Bajo Nivel](images/FRONT_BAJO_NIVEL.jfif)
+
+## Estrategia de versionamiento
+
+- `main`: Contiene la versión estable y lista para entrega.
+- `develop`: Rama de integración de nuevas funcionalidades.
+- `feature/*`: Ramas creadas para cada nueva funcionalidad o prototipo.
+- `hotfix/*`: Ramas para correcciones críticas en `main`.
+
+
 
 ---
 **Este proyecto se creó con el siguiente comando en la terminal:**
@@ -124,5 +136,3 @@ npm install
 ```
 
 ---
-
-✅ ¡Listo! Ahora tienes todo lo necesario para ejecutar este proyecto en **React**.
