@@ -50,6 +50,10 @@ src/
 └── routes.js         # Configuración de rutas
 ```
 
+## Prototipo Bajo nivel
+
+![Prototipo Bajo Nivel](images/FRONT_BAJO_NIVEL.jfif)
+
 ---
 **Este proyecto se creó con el siguiente comando en la terminal:**
 
