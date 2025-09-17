@@ -11,16 +11,17 @@ SIRHA-Front es la interfaz de usuario para la gestión de solicitudes de cambios
 - [Caso de Negocio](#caso-de-negocio)
 - [Tecnologías Utilizadas](#tecnologías-utilizadas-)
 - [Estructura del Proyecto](#estructura-del-proyecto-)
+- [Estrategia de versionamiento](#estrategia-de-versionamiento-)
 
 
 ## Integrantes
 
--Anderson Fabian Garcia Nieto
--David Alejandro Patacon Henao 
--Felipe Eduardo Calviche Gallego
--Jared Sebastian Farfan Guevara
--Kevin Arturo Cuitiva Pardo
--Maria Paula Rodriguez Muñoz
+- Anderson Fabian Garcia Nieto
+- David Alejandro Patacon Henao 
+- Felipe Eduardo Calviche Gallego
+- Jared Sebastian Farfan Guevara
+- Kevin Arturo Cuitiva Pardo
+- Maria Paula Rodriguez Muñoz
 
 
 ## Tecnologías Utilizadas 🛠
@@ -49,6 +50,15 @@ src/
 ├── index.js          # Punto de entrada
 └── routes.js         # Configuración de rutas
 ```
+
+## Estrategia de versionamiento
+
+- `main`: Contiene la versión estable y lista para entrega.
+- `develop`: Rama de integración de nuevas funcionalidades.
+- `feature/*`: Ramas creadas para cada nueva funcionalidad o prototipo.
+- `hotfix/*`: Ramas para correcciones críticas en `main`.
+
+
 
 ---
 **Este proyecto se creó con el siguiente comando en la terminal:**
@@ -120,5 +130,3 @@ npm install
 ```
 
 ---
-
-✅ ¡Listo! Ahora tienes todo lo necesario para ejecutar este proyecto en **React**.
