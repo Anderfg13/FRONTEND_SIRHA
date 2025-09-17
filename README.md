@@ -11,7 +11,7 @@ SIRHA-Front es la interfaz de usuario para la gestión de solicitudes de cambios
 - [Caso de Negocio](#caso-de-negocio)
 - [Tecnologías Utilizadas](#tecnologías-utilizadas-)
 - [Estructura del Proyecto](#estructura-del-proyecto-)
-- [Estrategia de versionamiento](#estrategia-de-versionamiento-)
+- [Estrategia de versionamiento](#estrategia-de-versionamiento)
 
 
 ## Integrantes
@@ -23,6 +23,8 @@ SIRHA-Front es la interfaz de usuario para la gestión de solicitudes de cambios
 - Kevin Arturo Cuitiva Pardo
 - Maria Paula Rodriguez Muñoz
 
+## Caso de Negocio
+El objetivo principal es darles a estudiantes, profesores y decanaturas una plataforma con herramientas claras para crear, evaluar y aprobar/rechazar solicitudes de cambio de horarios, optimizando la gestión académica y reduciendo conflictos de cupos y cargas.
 
 ## Tecnologías Utilizadas 🛠
 
