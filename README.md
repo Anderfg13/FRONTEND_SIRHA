@@ -138,3 +138,53 @@ npm install
 ---
 
 ## Funcionamiento
+
+- Login de ingreso para estudiantes, decanatura o administrador.
+
+![Login](./images/LOG_IN.png)
+
+- Inicio (Estudiante - Decanatura - Administrador)
+
+![Inicio](./images/Estudiante/INICIO_ESTUDIANTE.png)
+
+![Inicio](./images/Decanatura/INICIO_DECANATURA.png)
+
+![Inicio](./images/Administrador/INICIO_ADMINISTRADOR.png)
+
+- Semaforo (Estudiante - Decanatura Administrador)
+
+![Semaforo](./images/Estudiante/SEMAFORO_ESTUDIANTE.png)
+
+![Semaforo](./images/Decanatura/SEMAFORO_DECANATURA.png)
+
+![Semaforo](./images/Administrador/SEMAFORO_ADMINISTRADOR.png)
+
+- Solicitudes (Estudiante - Decanatura - Administrador)
+
+![Solicitud](./images/Estudiante/SOLICITUDES_ESTUDIANTES.png)
+
+![Solicitud](./images/Decanatura/SOLICITUD_DECANATURA.png)
+
+![Solicitud](./images/Administrador/SOLICITUDES_ADMINISTRADOR.png)
+
+- Horarios (Estudiante -Administrador)
+
+![Horario](./images/Estudiante/HORARIO_ESTUDIANTE.png)
+
+![Horario](./images/Administrador/HORARIO_ADEMINISTRACION.png)
+
+- Gestion de Materias (Decanatura -Adminitrador)
+
+![Materia](./images/Decanatura/MATERIAS_DECANATURA.png)
+
+![Materia](./images/Administrador/MATERIAS_ADMINISTRCION.png)
+
+- Estadisticas/Configuración Academica (Decanatura -Adminitrador)
+
+![Estadistica](./images/Decanatura/CONFIGURACION_DECANATURA.png)
+
+![Estadistica](./images/Administrador/ESTADISTICAS_ADMINISTRACION.png)
+
+- Estudiantes (Decanatura)
+
+![Estudiante](./images/Decanatura/ESTUDIANTES_DECANATURA.png)
