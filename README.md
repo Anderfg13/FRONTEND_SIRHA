@@ -11,6 +11,8 @@ SIRHA-Front es la interfaz de usuario para la gestión de solicitudes de cambios
 - [Caso de Negocio](#caso-de-negocio)
 - [Tecnologías Utilizadas](#tecnologías-utilizadas-)
 - [Estructura del Proyecto](#estructura-del-proyecto-)
+- [Prototipo de Bajo nivel](#Prototipo-Bajo-nivel-)
+- [Prototipo de Alto nivel](#Prototipo-Alto-nivel-)
 - [Estrategia de versionamiento](#estrategia-de-versionamiento)
 
 
@@ -56,6 +58,9 @@ src/
 ## Prototipo Bajo nivel
 
 ![Prototipo Bajo Nivel](images/FRONT_BAJO_NIVEL.jfif)
+
+## Prototipo Alto nivel
+https://www.figma.com/design/Y1b6jzPJ9DPd1o6IlkdAoM/SIRHA?node-id=2-3401&t=Useu1qVcxROZRnh1-1
 
 ## Estrategia de versionamiento
 
