@@ -20,7 +20,7 @@ SIRHA-Front es la interfaz de usuario para la gestión de solicitudes de cambios
 
 - Anderson Fabian Garcia Nieto
 - David Alejandro Patacon Henao 
-- Felipe Eduardo Calviche Gallego
+- Felipe Eduardo Calvache Gallego
 - Jared Sebastian Farfan Guevara
 - Kevin Arturo Cuitiva Pardo
 - Maria Paula Rodriguez Muñoz
