@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // 👈 importamos el hook
 import logoU from '../assets/icons/LogoU.jpg';
-
 
 export default function LoginPage() {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // 👈 inicializamos el hook
 
   function handleSubmit(e) {
     e.preventDefault();
-    alert(`Intento de login:\nID: ${id}\nPassword: ${password ? '●●●●' : ''}`);
+
+    navigate('/decano/solicitudes');
   }
 
   const pageStyle = {
@@ -25,7 +27,6 @@ export default function LoginPage() {
   const universityLogo = (
     <img src={logoU} alt="Logo universidad" style={{ width: "84px", borderRadius: "8px" }} />
   );
-
 
   const logoWrapperStyle = {
     position: 'absolute',
