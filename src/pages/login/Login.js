@@ -19,13 +19,7 @@ function Login() {
   return (
     <div
       className="login-background"
-      style={{
-        backgroundImage: `url(${fondo})`,
-        backgroundSize: "60vw auto",
-        backgroundPosition: "right bottom",
-        backgroundRepeat: "no-repeat",
-        backgroundColor: "#a10000",
-      }}
+      style={{ backgroundImage: `url(${fondo})` }}
     >
       <div className="login-card">
         <div className="login-header">
@@ -48,7 +42,7 @@ function Login() {
             id="user"
             value={user}
             onChange={(e) => setUser(e.target.value)}
-            placeholder="123456789"
+            placeholder="Ingrese su usuario"
           />
           <label className="login-label" htmlFor="password">
             Contraseña
@@ -59,7 +53,7 @@ function Login() {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="************"
+            placeholder="Ingrese su contraseña"
           />
           <button className="login-button" type="submit">
             Ingresar

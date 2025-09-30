@@ -1,6 +1,9 @@
 .login-background {
   min-height: 100vh;
-  background: #a10000;
+  background-size: 60vw auto;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-color: #a10000;
   display: flex;
   align-items: center;
   justify-content: center;

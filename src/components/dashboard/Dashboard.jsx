@@ -2,18 +2,12 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./Dashboard.css";
 import logoECIJG from "../../assets/images/login/Logotipo.png";
+import MenuButton from "./MenuButton";
 
 export default function Dashboard({ user, children }) {
   const navigate = useNavigate();
   const location = useLocation(); // <-- Nuevo
   const [showLogoutModal, setShowLogoutModal] = useState(false);
-
-  const menuItems = [
-    { nombre: "INICIO", ruta: "/dashboard", icono: "home" },
-    { nombre: "HORARIO", ruta: "/horario", icono: "calendar_today" },
-    { nombre: "SEMAFORO", ruta: "/semaforo", icono: "traffic" },
-    { nombre: "SOLICITUDES", ruta: "/solicitudes", icono: "description" }
-  ];
 
   const handleNavigation = (path) => {
     navigate(path);
@@ -50,15 +44,13 @@ export default function Dashboard({ user, children }) {
       <aside className="sidebar">
         <nav className="sidebar-nav">
           <ul>
-            {menuItems.map((item) => (
-              <li
-                key={item.nombre}
-                className={`nav-item clickable${location.pathname === item.ruta ? " active" : ""}`}
-                onClick={() => handleNavigation(item.ruta)}
-              >
-                <span className="material-icons">{item.icono}</span>
-                {item.nombre}
-              </li>
+            {user.opcionesMenu.map((opcion, idx) => (
+              <MenuButton
+                key={idx}
+                icono={opcion.icono}
+                nombre={opcion.nombre}
+                ruta={opcion.ruta}
+              />
             ))}
           </ul>
         </nav>
