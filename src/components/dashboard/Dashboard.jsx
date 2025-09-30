@@ -1,11 +1,19 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./Dashboard.css";
-import logoECIJG from "../../assets/images/login/Logotipo.png"; // Usa tu logo local
+import logoECIJG from "../../assets/images/login/Logotipo.png";
 
-export default function Dashboard({ user }) {
+export default function Dashboard({ user, children }) {
   const navigate = useNavigate();
+  const location = useLocation(); // <-- Nuevo
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+
+  const menuItems = [
+    { nombre: "INICIO", ruta: "/dashboard", icono: "home" },
+    { nombre: "HORARIO", ruta: "/horario", icono: "calendar_today" },
+    { nombre: "SEMAFORO", ruta: "/semaforo", icono: "traffic" },
+    { nombre: "SOLICITUDES", ruta: "/solicitudes", icono: "description" }
+  ];
 
   const handleNavigation = (path) => {
     navigate(path);
@@ -42,25 +50,19 @@ export default function Dashboard({ user }) {
       <aside className="sidebar">
         <nav className="sidebar-nav">
           <ul>
-            <li className="nav-item active" onClick={() => handleNavigation("/dashboard")}>
-              <span className="material-icons">home</span>
-              INICIO
-            </li>
-            <li className="nav-item clickable" onClick={() => handleNavigation("/horario")}>
-              <span className="material-icons">calendar_today</span>
-              HORARIO
-            </li>
-            <li className="nav-item clickable" onClick={() => handleNavigation("/semaforo")}>
-              <span className="material-icons">traffic</span>
-              SEMÁFORO
-            </li>
-            <li className="nav-item clickable" onClick={() => handleNavigation("/solicitudes")}>
-              <span className="material-icons">description</span>
-              SOLICITUDES
-            </li>
+            {menuItems.map((item) => (
+              <li
+                key={item.nombre}
+                className={`nav-item clickable${location.pathname === item.ruta ? " active" : ""}`}
+                onClick={() => handleNavigation(item.ruta)}
+              >
+                <span className="material-icons">{item.icono}</span>
+                {item.nombre}
+              </li>
+            ))}
           </ul>
         </nav>
-        <div className="logout clickable" onClick={handleLogout}>
+        <div className="logout clickable" onClick={() => setShowLogoutModal(true)}>
           <span className="material-icons">exit_to_app</span>
           SALIR
         </div>
@@ -84,14 +86,14 @@ export default function Dashboard({ user }) {
                 : ""}
             </div>
           </div>
-          <div className="profile-icon">
+          <div className="profile-icon" onClick={() => navigate("/usuario")}>
             <span className="material-icons">person_outline</span>
           </div>
         </header>
 
         {/* Content */}
         <div className="content">
-          {/* Aquí va el contenido dinámico según la ruta */}
+          {children /* Aquí se mostrarán los componentes hijos */}
         </div>
       </main>
 
