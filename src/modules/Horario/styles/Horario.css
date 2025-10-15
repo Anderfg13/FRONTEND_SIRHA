@@ -1,0 +1,464 @@
+/* Importar fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/* Reset y estilos base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  background: #f9fafb;
+  color: #1f2937;
+  overflow-x: hidden;
+}
+
+/* Layout */
+.horario-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+/* SIDEBAR - Mismo estilo que Dashboard */
+.sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, #b91c1c, #7f1d1d);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.sidebar-header {
+  padding: 25px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-header h1 {
+  font-size: 26px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.sidebar-header p {
+  font-size: 13px;
+  margin: 5px 0 0;
+  opacity: 0.85;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.sidebar nav li {
+  padding: 14px 20px;
+  border-left: 4px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  font-size: 15px;
+}
+
+.sidebar nav li:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #fff;
+  transform: translateX(5px);
+}
+
+.sidebar nav li.active {
+  background: rgba(255, 255, 255, 0.15);
+  border-left: 4px solid #fff;
+}
+
+/* Estilos para los íconos de Material Icons en sidebar */
+.sidebar nav li .material-icons {
+  font-size: 20px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  transition: transform 0.3s ease;
+}
+
+.sidebar nav li:hover .material-icons {
+  transform: scale(1.1);
+}
+
+.logout {
+  padding: 15px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  border-left: 4px solid transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logout:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #fff;
+  transform: translateX(5px);
+}
+
+.logout .material-icons {
+  font-size: 20px;
+  margin-right: 12px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 260px;
+  width: calc(100vw - 260px);
+  min-height: 100vh;
+}
+
+/* Header - Mismo estilo que Dashboard */
+.main-header {
+  background: #fff;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+.main-header img {
+  height: 45px;
+}
+
+.profile-icon {
+  width: 55px;
+  height: 55px;
+  background: #e5e7eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d1d5db;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.profile-icon .material-icons {
+  font-size: 30px;
+  color: #374151;
+  transition: transform 0.3s ease;
+}
+
+.profile-icon:hover {
+  background: #d1d5db;
+  transform: scale(1.05);
+}
+
+.profile-icon:hover .material-icons {
+  transform: scale(1.1);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 64px;
+  margin-right: 16px;
+}
+
+.user-details p {
+  margin: 4px 0;
+}
+
+.user-name {
+  font-weight: bold;
+}
+
+.user-email, .user-program {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Content Section */
+.content-section {
+  flex: 1;
+  padding: 30px 40px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 80px);
+  width: 100%;
+}
+
+/* Semester Selector */
+.semester-selector {
+  position: relative;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.semester-dropdown {
+  width: 100%;
+  appearance: none;
+  background: #fff;
+  border: 2px solid #b91c1c;
+  color: #111827;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  padding-right: 50px;
+  transition: all 0.3s ease;
+}
+
+.semester-dropdown:hover {
+  border-color: #7f1d1d;
+}
+
+.semester-selector::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  background: #b91c1c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 8px 8px 0;
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+.semester-selector:hover::after {
+  background: #7f1d1d;
+}
+
+.semester-selector::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z' fill='white'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px;
+}
+
+/* Schedule Container */
+.schedule-container {
+  overflow-x: auto;
+  width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.schedule-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Schedule Table */
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.schedule-table th {
+  background: #f3f4f6;
+  padding: 16px 20px;
+  border: 1px solid #e5e7eb;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #374151;
+  text-align: center;
+}
+
+.schedule-table td {
+  border: 1px solid #e5e7eb;
+  padding: 16px 20px;
+  text-align: center;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.schedule-table td:hover {
+  background: #f8fafc;
+  transform: scale(1.02);
+}
+
+.time-slot {
+  font-weight: 600;
+  background: #f3f4f6;
+}
+
+.schedule-table tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.schedule-table tr:hover {
+  background: #f0f4f8;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .main-content {
+    width: calc(100vw - 260px);
+  }
+  
+  .content-section {
+    padding: 25px 30px;
+  }
+  
+  .schedule-table th,
+  .schedule-table td {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .horario-container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  
+  .main-content {
+    margin-left: 0;
+    width: 100vw;
+  }
+  
+  .sidebar nav ul {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+  }
+  
+  .sidebar nav li {
+    border-left: none;
+    border-bottom: 4px solid transparent;
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 10px 15px;
+  }
+  
+  .sidebar nav li:hover,
+  .sidebar nav li.active {
+    border-left: none;
+    border-bottom: 4px solid #fff;
+    transform: translateY(-2px);
+  }
+  
+  .logout {
+    border-left: none;
+    border-bottom: 4px solid transparent;
+    justify-content: center;
+  }
+  
+  .logout:hover {
+    border-left: none;
+    border-bottom: 4px solid #fff;
+    transform: translateY(-2px);
+  }
+  
+  .content-section {
+    padding: 20px;
+  }
+  
+  .main-header {
+    padding: 15px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .user-info {
+    margin-bottom: 15px;
+  }
+  
+  .profile-icon {
+    align-self: flex-end;
+  }
+  
+  .schedule-container {
+    font-size: 12px;
+  }
+  
+  .schedule-table th,
+  .schedule-table td {
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-section {
+    padding: 15px;
+  }
+  
+  .main-header {
+    padding: 12px 15px;
+  }
+  
+  .logo-image {
+    height: 48px;
+    margin-right: 12px;
+  }
+  
+  .user-name {
+    font-size: 14px;
+  }
+  
+  .user-email, .user-program {
+    font-size: 12px;
+  }
+  
+  .semester-dropdown {
+    font-size: 14px;
+    padding: 10px;
+  }
+  
+  .schedule-table th,
+  .schedule-table td {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+  
+}

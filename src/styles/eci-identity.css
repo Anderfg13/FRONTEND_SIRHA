@@ -1,0 +1,118 @@
+/* Manual de Identidad ECI Bienestar - Variables CSS */
+:root {
+  /* Tipografías */
+  --font-family: 'Work Sans', sans-serif;
+  --font-size-title: 30px;
+  --font-weight-bold: 700;
+  --font-size-subtitle: 24px;
+  --font-weight-semibold: 600;
+  --font-size-body: 14px;
+  --font-weight-regular: 400;
+  --font-size-small: 12px;
+
+  /* Colores Principales */
+  --color-principal: #990000;
+  --color-exito: #17C964;
+  --color-error: #F31260;
+
+  /* Alertas Informativas 1 */
+  --color-info-text: #006FEE;
+  --color-info-bg: #E6F1FE;
+
+  /* Alertas Informativas 2 */
+  --color-success-text: #17C964;
+  --color-success-bg: #E8FAF0;
+
+  /* Alertas de Advertencia */
+  --color-warning-text: #C4841D;
+  --color-warning-bg: #FEF3C7;
+
+  /* Alertas de Error */
+  --color-error-text: #F31260;
+  --color-error-bg: #FEE7EF;
+
+  /* Colores Módulo Administrador */
+  --color-admin-gradient: #4F0000;
+  --color-admin-principal: #990000;
+
+  /* Colores Generales */
+  --color-background: #FFFFFF;
+  --color-background-alt: #F5F5F5;
+  --color-text-primary: #333333;
+  --color-text-secondary: #666666;
+
+  /* Botones */
+  --color-button-primary: #CF3A3A;
+  --color-button-text: #FFFFFF;
+}
+
+/* Aplicar tipografías base */
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  background-color: var(--color-background-alt);
+}
+
+/* Títulos */
+h1 {
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+h2, h3, h4 {
+  font-size: var(--font-size-subtitle);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+/* Elementos de texto pequeño */
+small, .text-small {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-regular);
+}
+
+/* Clases utilitarias para alertas */
+.alert-info {
+  color: var(--color-info-text);
+  background-color: var(--color-info-bg);
+}
+
+.alert-success {
+  color: var(--color-success-text);
+  background-color: var(--color-success-bg);
+}
+
+.alert-warning {
+  color: var(--color-warning-text);
+  background-color: var(--color-warning-bg);
+}
+
+.alert-error {
+  color: var(--color-error-text);
+  background-color: var(--color-error-bg);
+}
+
+/* Botones según manual */
+.btn-primary {
+  background-color: var(--color-button-primary);
+  color: var(--color-button-text);
+  border: none;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-principal);
+  transform: translateY(-1px);
+}
+
+/* Sidebar principal según manual */
+.sidebar-eci {
+  background: linear-gradient(180deg, var(--color-principal), var(--color-admin-gradient));
+  color: var(--color-button-text);
+}
