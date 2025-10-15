@@ -44,6 +44,12 @@ FRONTEND_SIRHA/
 │   │   ├── semaforo/         # Componente de semáforo académico
 │   │   │   ├── SemaforoAcademico.jsx
 │   │   │   └── Semaforo.css
+│   │   ├── groups/           # Componentes de grupos y materias
+│   │   │   ├── GroupTable.jsx
+│   │   │   ├── CapacityBar.jsx
+│   │   │   ├── GroupDetails.jsx
+│   │   │   ├── Groups.css
+│   │   │   └── MateriaSelector.css
 │   │   └── ui/               # Componentes UI genéricos (pendiente)
 │   │       ├── MetricCard.jsx
 │   │       ├── StatusBadge.jsx
@@ -52,6 +58,7 @@ FRONTEND_SIRHA/
 │   │       └── ConfirmDialog.jsx
 │   ├── pages/                # Páginas completas
 │   │   ├── EstudiantesPage.jsx
+│   │   ├── GruposEstudiantePage.jsx
 │   │   ├── HorarioPage.jsx
 │   │   ├── SemaforoPage.jsx
 │   │   └── DashboardEstudiantePage.jsx
@@ -209,7 +216,60 @@ const semaforoData = {
 
 ---
 
-### 5. Componentes UI genéricos (`src/components/ui/`) — Pendiente de implementar
+### 5. Componentes de Grupos y Materias (`src/components/groups/`)
+
+**Objetivo**: Permitir visualización e inscripción en grupos tanto para admin como estudiante.
+
+#### `CapacityBar.jsx`
+- **Props**:
+  - `capacidadActual`: Número de cupos ocupados.
+  - `cupoMaximo`: Número máximo de cupos.
+  - `showPercentage`: Mostrar porcentaje (default: true).
+- **Uso**: Barra visual de capacidad con colores según ocupación (verde < 75%, amarillo 75-90%, rojo >= 90%).
+
+#### `GroupTable.jsx`
+- **Props**:
+  - `grupos`: Array de grupos `{grupo, docente, capacidadActual, cupoMaximo, listaEspera, horario}`.
+  - `selectedGrupo`: Grupo seleccionado actualmente.
+  - `onGrupoSelect`: Callback al seleccionar un grupo.
+  - `onAction`: Callback para el botón de acción.
+  - `actionLabel`: Etiqueta del botón ("Modificar" para admin, "Inscribirse" para estudiante).
+  - `actionIcon`: Icono del botón (default: "edit" para admin, "add_circle" para estudiante).
+  - `isStudent`: Booleano para vista estudiante (deshabilita botón si no hay cupos).
+- **Uso**: Tabla completa de grupos con información de capacidad y acciones.
+
+#### `GroupDetails.jsx`
+- **Props**:
+  - `grupo`: Grupo seleccionado.
+  - `onClose`: Callback para cerrar panel (opcional).
+  - `isStudent`: Vista de estudiante (cambia acciones disponibles).
+  - `onInscribirse`, `onVerHorario`: Callbacks para estudiante.
+  - `onVerEstudiantes`, `onAumentarCupo`, `onReducirCupo`, `onGestionarLista`: Callbacks para admin.
+- **Uso**: Panel de detalles con información general, estado de capacidad y acciones según rol.
+
+**Ejemplo de uso (vista estudiante)**:
+```jsx
+<GroupTable 
+  grupos={gruposDisponibles}
+  selectedGrupo={grupoSeleccionado}
+  onGrupoSelect={setGrupoSeleccionado}
+  onAction={handleInscribirse}
+  actionLabel="Inscribirse"
+  actionIcon="add_circle"
+  isStudent={true}
+/>
+
+<GroupDetails 
+  grupo={grupoSeleccionado}
+  isStudent={true}
+  onInscribirse={() => inscribirseEnGrupo(grupoSeleccionado)}
+  onVerHorario={abrirCalendario}
+/>
+```
+
+---
+
+### 6. Componentes UI genéricos (`src/components/ui/`) — Pendiente de implementar
 
 **Componentes a extraer**:
 - `MetricCard.jsx`: Tarjeta con métrica (valor + label).
@@ -227,12 +287,17 @@ const semaforoData = {
 - **Componentes usados**: `MainLayout`, `Filters`, `StudentList`, `StudentDetail`.
 - **Datos**: Mock de estudiantes hardcoded (en producción: API).
 
+### `GruposEstudiantePage.jsx`
+- **Descripción**: Página de inscripción de grupos para estudiantes.
+- **Componentes usados**: `MainLayout`, `GroupTable`, `GroupDetails`.
+- **Datos**: Mock de grupos por materia.
+- **Funcionalidad**: Selector de materia, tabla de grupos, panel de detalles, inscripción.
+
 ### Páginas pendientes:
 - `HorarioPage.jsx`: Horario del estudiante autenticado.
 - `SemaforoPage.jsx`: Semáforo del estudiante autenticado.
 - `DashboardEstudiantePage.jsx`: Dashboard con métricas, calendario, alertas.
 - `SolicitudesPage.jsx`: Mis solicitudes + formulario para crear nueva.
-- `GruposMateriasPage.jsx`: Ver grupos disponibles e inscribirse.
 
 ---
 
