@@ -7,6 +7,9 @@ import TrafficLightPage from "./pages/traffic_light/traffic_light";
 import UserPage from "./pages/user/User";
 import RequestsPage from "./pages/requests/requests";
 import HomePage from "./pages/home/home"; // Importa la página principal (dashboard)
+// Nuevas páginas con componentes refactorizados
+import EstudiantesPage from './pages/EstudiantesPage';
+import GruposEstudiantePage from './pages/GruposEstudiantePage';
 
 function App() {
   const [user, setUser] = useState({
@@ -25,6 +28,9 @@ function App() {
         <Route path="/semaforo" element={<TrafficLightPage />} />
         <Route path="/usuario" element={<UserPage user={user} />} />
         <Route path="/solicitudes" element={<RequestsPage />} />
+        {/* Nuevas rutas con componentes refactorizados */}
+        <Route path="/estudiantes-demo" element={<EstudiantesPage />} />
+        <Route path="/grupos" element={<GruposEstudiantePage />} />
       </Routes>
     </BrowserRouter>
   );
