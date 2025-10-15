@@ -1,0 +1,251 @@
+/* Importar fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/* Reset y estilos base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  background: #f9fafb;
+  color: #1f2937;
+  overflow-x: hidden;
+}
+
+/* Layout Container */
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+/* ==================== SIDEBAR ==================== */
+.sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, #990000, #4F0000);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.sidebar-header {
+  padding: 25px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-header h1 {
+  font-size: 26px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.sidebar-header p {
+  font-size: 13px;
+  margin: 5px 0 0;
+  opacity: 0.85;
+}
+
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  padding: 14px 20px;
+  border-left: 4px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  font-size: 15px;
+}
+
+.sidebar-nav li.clickable:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #fff;
+  transform: translateX(5px);
+}
+
+.sidebar-nav li.active {
+  background: rgba(255, 255, 255, 0.15);
+  border-left: 4px solid #fff;
+}
+
+.sidebar-nav li .material-icons {
+  font-size: 20px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-nav li:hover .material-icons {
+  transform: scale(1.1);
+}
+
+.logout {
+  padding: 15px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  border-left: 4px solid transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logout:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #fff;
+  transform: translateX(5px);
+}
+
+.logout .material-icons {
+  font-size: 20px;
+  margin-right: 12px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==================== MAIN CONTENT ==================== */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 260px;
+  width: calc(100vw - 260px);
+  min-height: 100vh;
+}
+
+/* ==================== HEADER ==================== */
+.main-header {
+  background: #fff;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+.main-header .logo-image {
+  height: 45px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.profile-icon {
+  width: 55px;
+  height: 55px;
+  background: #e5e7eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d1d5db;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.profile-icon .material-icons {
+  font-size: 30px;
+  color: #374151;
+  transition: transform 0.3s ease;
+}
+
+.profile-icon:hover {
+  background: #d1d5db;
+  transform: scale(1.05);
+}
+
+.profile-icon:hover .material-icons {
+  transform: scale(1.1);
+}
+
+/* ==================== CONTENT WRAPPER ==================== */
+.content-wrapper {
+  flex: 1;
+  padding: 30px 35px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 80px);
+  width: 100%;
+}
+
+/* Utilidades */
+.clickable {
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .main-content {
+    margin-left: 200px;
+    width: calc(100vw - 200px);
+  }
+
+  .sidebar-header h1 {
+    font-size: 22px;
+  }
+
+  .sidebar-nav li {
+    font-size: 13px;
+    padding: 12px 15px;
+  }
+
+  .main-header {
+    padding: 12px 20px;
+  }
+
+  .content-wrapper {
+    padding: 20px 15px;
+  }
+}
