@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
+import { AuthProvider } from './context/AuthContext';
 import Login from './pages/login/Login';
 import SchedulePage from "./pages/schedule/Schedule";
 import TrafficLightPage from "./pages/traffic_light/traffic_light";
@@ -10,6 +11,7 @@ import HomePage from "./pages/home/home"; // Importa la página principal (dashb
 // Nuevas páginas con componentes refactorizados
 import EstudiantesPage from './pages/EstudiantesPage';
 import GruposEstudiantePage from './pages/GruposEstudiantePage';
+import DashboardEstudiantePage from './pages/DashboardEstudiantePage';
 
 function App() {
   const [user, setUser] = useState({
@@ -20,19 +22,22 @@ function App() {
   });
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<HomePage />} /> {/* Dashboard con resumen */}
-        <Route path="/horario" element={<SchedulePage />} />
-        <Route path="/semaforo" element={<TrafficLightPage />} />
-        <Route path="/usuario" element={<UserPage user={user} />} />
-        <Route path="/solicitudes" element={<RequestsPage />} />
-        {/* Nuevas rutas con componentes refactorizados */}
-        <Route path="/estudiantes-demo" element={<EstudiantesPage />} />
-        <Route path="/grupos" element={<GruposEstudiantePage />} />
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/dashboard" element={<HomePage />} /> {/* Dashboard con resumen */}
+          <Route path="/dashboard-estudiante" element={<DashboardEstudiantePage />} /> {/* Nuevo Dashboard estudiante */}
+          <Route path="/horario" element={<SchedulePage />} />
+          <Route path="/semaforo" element={<TrafficLightPage />} />
+          <Route path="/usuario" element={<UserPage user={user} />} />
+          <Route path="/solicitudes" element={<RequestsPage />} />
+          {/* Nuevas rutas con componentes refactorizados */}
+          <Route path="/estudiantes-demo" element={<EstudiantesPage />} />
+          <Route path="/grupos" element={<GruposEstudiantePage />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
