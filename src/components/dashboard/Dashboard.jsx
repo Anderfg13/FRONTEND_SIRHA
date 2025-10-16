@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import "./Dashboard.css";
+import "../../styles/Dashboard.css";
 import logoECIJG from "../../assets/images/login/Logotipo.png";
 import MenuButton from "./MenuButton";
 

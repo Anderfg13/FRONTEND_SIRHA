@@ -1,5 +1,5 @@
 import React from "react";
-import "./traffic_light.css";
+import "../../styles/TrafficLight.css";
 
 // Ejemplo de datos
 const semestres = [

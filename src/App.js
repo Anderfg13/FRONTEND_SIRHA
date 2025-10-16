@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import './App.css';
-import { AuthProvider } from './context/AuthContext';
-import Login from './pages/login/Login';
-import SchedulePage from "./pages/schedule/Schedule";
-import TrafficLightPage from "./pages/traffic_light/traffic_light";
-import UserPage from "./pages/user/User";
-import RequestsPage from "./pages/requests/requests";
-import HomePage from "./pages/home/home"; // Importa la página principal (dashboard)
+import './styles/App.css';
+import { AuthProvider } from './services/AuthContext';
+import LoginPage from './pages/LoginPage';
+import SchedulePage from "./pages/SchedulePage";
+import TrafficLightPage from "./pages/TrafficLightPage";
+import UserPage from "./pages/UserPage";
+import RequestsPage from "./pages/RequestsPage";
+import HomePage from "./pages/HomePage";
 // Nuevas páginas con componentes refactorizados
 import EstudiantesPage from './pages/EstudiantesPage';
 import GruposEstudiantePage from './pages/GruposEstudiantePage';
@@ -25,7 +25,7 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<LoginPage />} />
           <Route path="/dashboard" element={<HomePage />} /> {/* Dashboard con resumen */}
           <Route path="/dashboard-estudiante" element={<DashboardEstudiantePage />} /> {/* Nuevo Dashboard estudiante */}
           <Route path="/horario" element={<SchedulePage />} />

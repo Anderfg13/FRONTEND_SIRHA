@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
-import "./Layout.css";
+import "../../styles/Layout.css";
 
 /**
  * Layout principal que combina Sidebar, Header y contenido

@@ -1,6 +1,6 @@
 import React from "react";
-import Dashboard from "../../components/dashboard/Dashboard";
-import Home from "../../components/home/home"; // Importa el componente Home
+import Dashboard from "../components/dashboard/Dashboard";
+import Home from "../components/home/home";
 
 // Simulación de datos de usuario (puedes reemplazarlo por props o contexto)
 const user = {

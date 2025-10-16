@@ -1,5 +1,5 @@
 import React from "react";
-import "./Schedule.css";
+import "../../styles/Schedule.css";
 
 const horarios = [
   { franja: "07:00 - 08:30", dias: ["CAL-I", "CAL-I", "CAL-I", "CAL-I", "CAL-I", "CAL-I"] },

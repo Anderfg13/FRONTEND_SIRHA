@@ -1,8 +1,7 @@
 import React from "react";
-import Dashboard from "../../components/dashboard/Dashboard";
-import Requests from "../../components/requests/requests"; // Importa el componente creado
+import Dashboard from "../components/dashboard/Dashboard";
+import TrafficLight from "../components/traffic_light/traffic_light";
 
-// Simulación de datos de usuario (puedes reemplazarlo por props o contexto)
 const user = {
   nombreCompleto: "Anderson Fabián García Nieto",
   correo: "anderson.garcia-n@mail.escuelaing.edu.co",
@@ -16,12 +15,15 @@ const user = {
   ]
 };
 
-function RequestsPage() {
+function TrafficLightPage() {
   return (
     <Dashboard user={user}>
-      <Requests /> {/* Aquí se añade el componente de solicitudes */}
+      <div className="traffic-light-content">
+        <h2>Semáforo académico</h2>
+        <TrafficLight />
+      </div>
     </Dashboard>
   );
 }
 
-export default RequestsPage;
+export default TrafficLightPage;

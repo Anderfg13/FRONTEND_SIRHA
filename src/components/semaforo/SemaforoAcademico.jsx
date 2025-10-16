@@ -1,5 +1,5 @@
 import React from "react";
-import "./Semaforo.css";
+import "../../styles/Semaforo.css";
 
 /**
  * Componente de semáforo académico parametrizado

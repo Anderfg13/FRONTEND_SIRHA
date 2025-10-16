@@ -1,5 +1,5 @@
 import React from "react";
-import "./Student.css";
+import "../../styles/Student.css";
 
 /**
  * Tarjeta individual de estudiante

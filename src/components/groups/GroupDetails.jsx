@@ -1,5 +1,5 @@
 import React from 'react';
-import './Groups.css';
+import '../../styles/Groups.css';
 
 /**
  * Panel de detalles del grupo seleccionado

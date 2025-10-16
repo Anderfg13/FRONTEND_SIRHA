@@ -1,5 +1,5 @@
 import React from "react";
-import "./Schedule.css";
+import "../../styles/Schedule.css";
 
 /**
  * Componente de horario parametrizado

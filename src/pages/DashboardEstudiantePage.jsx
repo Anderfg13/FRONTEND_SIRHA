@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MainLayout from '../components/layout/MainLayout';
 import MetricCard from '../components/ui/MetricCard';
 import StatusBadge from '../components/ui/StatusBadge';
-import './DashboardEstudiantePage.css';
+import '../styles/DashboardEstudiantePage.css';
 
 /**
  * Dashboard principal para estudiantes

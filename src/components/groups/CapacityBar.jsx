@@ -1,5 +1,5 @@
 import React from 'react';
-import './Groups.css';
+import '../../styles/Groups.css';
 
 /**
  * Barra de capacidad visual que muestra el porcentaje de ocupación

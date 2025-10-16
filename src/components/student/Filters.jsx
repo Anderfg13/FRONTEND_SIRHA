@@ -1,5 +1,5 @@
 import React from "react";
-import "./Student.css";
+import "../../styles/Student.css";
 
 /**
  * Componente de filtros para lista de estudiantes

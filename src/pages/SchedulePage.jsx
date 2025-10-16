@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Dashboard from "../../components/dashboard/Dashboard";
-import Schedule from "../../components/schedule/Schedule";
-import "./Schedule.css"; // Importa el CSS de la página
+import Dashboard from "../components/dashboard/Dashboard";
+import Schedule from "../components/schedule/Schedule";
+import "../styles/Schedule.css";
 
 // Simulación de datos de usuario (puedes reemplazarlo por props o contexto)
 const user = {
@@ -30,7 +30,6 @@ function SchedulePage() {
   const handleSelect = (semestre) => {
     setSelected(semestre);
     setOpen(false);
-    // Aquí podrías cargar el horario correspondiente al semestre seleccionado
   };
 
   return (
@@ -38,25 +37,22 @@ function SchedulePage() {
       <div className="schedule-header" style={{ position: "relative" }}>
         <button
           className="schedule-dropdown-btn"
-          onClick={() => setOpen((prev) => !prev)}
+          onClick={() => setOpen(!open)}
         >
-          <span>{selected}</span>
-          <span className="schedule-arrow" style={{ transform: open ? "rotate(180deg)" : "none" }}>
-            &#9660;
-          </span>
+          {selected}
         </button>
         {open && (
-          <ul className="schedule-dropdown">
-            {semestres.map((sem, idx) => (
-              <li
-                key={idx}
-                className={sem === selected ? "selected" : ""}
-                onClick={() => handleSelect(sem)}
+          <div className="schedule-dropdown-menu">
+            {semestres.map((semestre) => (
+              <div
+                key={semestre}
+                className="schedule-dropdown-item"
+                onClick={() => handleSelect(semestre)}
               >
-                {sem}
-              </li>
+                {semestre}
+              </div>
             ))}
-          </ul>
+          </div>
         )}
       </div>
       <Schedule />

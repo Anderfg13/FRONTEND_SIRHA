@@ -1,6 +1,6 @@
 import React from "react";
 import StudentCard from "./StudentCard";
-import "./Student.css";
+import "../../styles/Student.css";
 
 /**
  * Lista de estudiantes

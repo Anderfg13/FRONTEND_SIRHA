@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import "./Layout.css";
+import "../../styles/Layout.css";
 
 /**
  * Sidebar compartido para admin y estudiante

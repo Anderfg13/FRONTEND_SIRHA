@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import "./MenuButton.css";
+import "../../styles/MenuButton.css";
 
 function MenuButton({ icono, nombre, ruta }) {
   const navigate = useNavigate();

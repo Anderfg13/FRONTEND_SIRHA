@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MainLayout from '../components/layout/MainLayout';
 import GroupTable from '../components/groups/GroupTable';
 import GroupDetails from '../components/groups/GroupDetails';
-import '../components/groups/MateriaSelector.css';
+import '../styles/MateriaSelector.css';
 
 /**
  * Página de inscripción de grupos para estudiantes

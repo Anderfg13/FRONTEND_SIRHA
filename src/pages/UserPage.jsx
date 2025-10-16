@@ -1,6 +1,6 @@
 import React from "react";
-import Dashboard from "../../components/dashboard/Dashboard";
-import User from "../../components/user/User";
+import Dashboard from "../components/dashboard/Dashboard";
+import User from "../components/user/User";
 
 function UserPage({ user }) {
   return (

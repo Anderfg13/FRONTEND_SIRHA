@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
-import logoECIJG from "../../assets/images/login/Logotipo.png";
-import fondo from "../../assets/images/login/Fondo.png";
+import "../styles/Login.css";
+import logoECIJG from "../assets/images/login/Logotipo.png";
+import fondo from "../assets/images/login/Fondo.png";
 
-function Login() {
+function LoginPage() {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -71,4 +71,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginPage;

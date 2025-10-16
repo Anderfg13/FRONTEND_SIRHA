@@ -1,6 +1,6 @@
 import React from 'react';
 import CapacityBar from './CapacityBar';
-import './Groups.css';
+import '../../styles/Groups.css';
 
 /**
  * Tabla de grupos disponibles con información de capacidad y acciones

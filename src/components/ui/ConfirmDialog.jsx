@@ -1,5 +1,5 @@
 import React from 'react';
-import './UI.css';
+import '../../styles/UI.css';
 
 /**
  * Diálogo de confirmación reutilizable
