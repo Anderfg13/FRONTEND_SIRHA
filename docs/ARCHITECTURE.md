@@ -269,14 +269,102 @@ const semaforoData = {
 
 ---
 
-### 6. Componentes UI genéricos (`src/components/ui/`) — Pendiente de implementar
+### 6. Componentes UI genéricos (`src/components/ui/`)
 
-**Componentes a extraer**:
-- `MetricCard.jsx`: Tarjeta con métrica (valor + label).
-- `StatusBadge.jsx`: Badge de estado (ACTIVO, PENDIENTE, etc.).
-- `Table.jsx`: Tabla genérica con ordenamiento.
-- `Modal.jsx`: Modal/dialog reutilizable.
-- `ConfirmDialog.jsx`: Diálogo de confirmación (reemplazar `window.confirm`).
+**Objetivo**: Componentes reutilizables para toda la aplicación con diseño moderno.
+
+#### `MetricCard.jsx`
+- **Props**:
+  - `title`: Título de la métrica.
+  - `value`: Valor numérico o texto.
+  - `icon`: Icono de Material Icons.
+  - `color`: Color del icono (green, yellow, red, blue).
+  - `trend`: Tendencia opcional (+5%, -3%).
+  - `onClick`: Callback opcional.
+- **Uso**: Tarjetas de métricas con gradientes, sombras y efectos hover.
+
+#### `StatusBadge.jsx`
+- **Props**:
+  - `status`: Estado del elemento.
+  - `label`: Texto del badge (opcional).
+  - `variant`: Variante de color (success, warning, danger, info, default).
+- **Uso**: Badges con colores, bordes redondeados y efectos hover.
+
+#### `Modal.jsx`
+- **Props**:
+  - `isOpen`: Controla visibilidad.
+  - `onClose`: Callback al cerrar.
+  - `title`: Título del modal.
+  - `children`: Contenido.
+  - `size`: Tamaño (small, medium, large).
+  - `showCloseButton`: Mostrar botón X.
+- **Uso**: Modal con backdrop blur, animaciones de entrada y bordes redondeados.
+
+#### `ConfirmDialog.jsx`
+- **Props**:
+  - `isOpen`: Controla visibilidad.
+  - `onConfirm`, `onCancel`: Callbacks.
+  - `title`, `message`: Textos.
+  - `confirmText`, `cancelText`: Textos de botones.
+  - `variant`: Variante (danger, warning, success, info).
+- **Uso**: Diálogo de confirmación con icono animado y botones con gradientes.
+
+**Ejemplo de uso**:
+```jsx
+<MetricCard 
+  title="Promedio General"
+  value="4.2"
+  icon="star"
+  color="green"
+  trend="+0.2"
+/>
+
+<StatusBadge status="activo" variant="success" />
+
+<Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} title="Detalles">
+  <p>Contenido del modal...</p>
+</Modal>
+
+<ConfirmDialog 
+  isOpen={confirmOpen}
+  title="¿Confirmar acción?"
+  message="Esta acción no se puede deshacer"
+  onConfirm={handleConfirm}
+  onCancel={() => setConfirmOpen(false)}
+  variant="danger"
+/>
+```
+
+---
+
+## AuthContext (`src/context/AuthContext.jsx`)
+
+**Objetivo**: Proveer contexto de autenticación global.
+
+**Funcionalidades**:
+- `login(userData)`: Almacena usuario en estado y localStorage.
+- `logout()`: Limpia usuario.
+- `hasRole(rol)`: Verifica si el usuario tiene un rol específico.
+- `getUserInitials()`: Obtiene iniciales del nombre.
+- `isAuthenticated`: Booleano si hay usuario autenticado.
+- `user`: Objeto del usuario actual.
+
+**Uso**:
+```jsx
+// En App.js
+import { AuthProvider } from './context/AuthContext';
+
+<AuthProvider>
+  <BrowserRouter>
+    <Routes>...</Routes>
+  </BrowserRouter>
+</AuthProvider>
+
+// En cualquier componente
+import { useAuth } from '../context/AuthContext';
+
+const { user, login, logout, hasRole } = useAuth();
+```
 
 ---
 
@@ -293,19 +381,26 @@ const semaforoData = {
 - **Datos**: Mock de grupos por materia.
 - **Funcionalidad**: Selector de materia, tabla de grupos, panel de detalles, inscripción.
 
+### `DashboardEstudiantePage.jsx`
+- **Descripción**: Dashboard completo para estudiantes.
+- **Componentes usados**: `MainLayout`, `MetricCard`, `StatusBadge`.
+- **Secciones**:
+  - Header con bienvenida y acciones rápidas
+  - Grid de 4 métricas (Promedio, Créditos, Materias, Semestre)
+  - Materias actuales con barra de progreso
+  - Alertas y notificaciones con códigos de color
+  - Calendario mini con eventos marcados
+  - Lista de eventos próximos
+- **Ruta**: `/dashboard-estudiante`
+
 ### Páginas pendientes:
-- `HorarioPage.jsx`: Horario del estudiante autenticado.
-- `SemaforoPage.jsx`: Semáforo del estudiante autenticado.
-- `DashboardEstudiantePage.jsx`: Dashboard con métricas, calendario, alertas.
 - `SolicitudesPage.jsx`: Mis solicitudes + formulario para crear nueva.
 
 ---
 
-## AuthContext (`src/context/AuthContext.jsx`) — Pendiente
+## Paleta de colores (Institucional)
 
-**Objetivo**: Proveer contexto de autenticación global.
-
-**Funcionalidades**:
+**Colores principales**:
 - `AuthProvider`: Componente wrapper con estado de usuario.
 - `useAuth()`: Hook para acceder a usuario actual, login, logout.
 - Almacenar: `{id, nombre, email, rol: "admin" | "estudiante", ...}`.
