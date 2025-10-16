@@ -49,22 +49,22 @@ body {
 }
 
 .sidebar-header {
-  background: #e0e0e0;
+  background: transparent;
   padding: 1.5rem 1rem;
   text-align: center;
   width: 100%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .sidebar-header h1 {
-  color: #111;
+  color: #ffffff;
   font-size: 2rem;
   font-weight: bold;
   margin: 0;
 }
 
 .sidebar-header p {
-  color: #222;
+  color: #ffffff;
   margin: 0.5rem 0 0 0;
   font-size: 0.9rem;
 }

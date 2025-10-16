@@ -11,6 +11,13 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    // Validar que los campos no estén vacíos
+    if (!user.trim() || !password.trim()) {
+      alert("Por favor ingrese usuario y contraseña");
+      return;
+    }
+    
     // Aquí podrías validar el usuario y contraseña
     // Por ahora, simplemente redirige a /dashboard
     navigate("/dashboard");

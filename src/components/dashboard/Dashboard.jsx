@@ -35,13 +35,13 @@ export default function Dashboard({ user, children }) {
 
   return (
     <div className="dashboard">
-      {/* Caja gris arriba */}
-      <div className="sidebar-header">
-        <h1>SIRHA</h1>
-        <p>Sistema Académico</p>
-      </div>
-      {/* Sidebar rojo debajo */}
+      {/* Sidebar */}
       <aside className="sidebar">
+        <div className="sidebar-header">
+          <h1>SIRHA</h1>
+          <p>Sistema Académico</p>
+        </div>
+        
         <nav className="sidebar-nav">
           <ul>
             {user.opcionesMenu.map((opcion, idx) => (
@@ -54,6 +54,7 @@ export default function Dashboard({ user, children }) {
             ))}
           </ul>
         </nav>
+        
         <div className="logout clickable" onClick={() => setShowLogoutModal(true)}>
           <span className="material-icons">exit_to_app</span>
           SALIR
