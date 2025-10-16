@@ -38,21 +38,82 @@ El objetivo principal es darles a estudiantes, profesores y decanaturas una plat
 
 ```
 src/
-├── assets/           # Recursos estáticos (imágenes, fuentes)
-├── components/       # Componentes reutilizables
-│   ├── common/       # Componentes UI base (Button, Input, etc.)
-│   ├── layout/       # Componentes de estructura (Header, Footer, etc.)
-│   ├── charts/       # Componentes de visualización con D3
-│   └── forms/        # Componentes de formulario
-├── containers/       # Componentes contenedores con lógica de negocio
-├── context/          # Contextos para estado global (Auth, Theme, etc.)
-├── hooks/            # Hooks personalizados
-├── pages/            # Componentes de página completa
-├── services/         # Servicios para comunicación con API
-├── utils/            # Funciones de utilidad
-├── App.js            # Componente principal
-├── index.js          # Punto de entrada
-└── routes.js         # Configuración de rutas
+├── App.js
+├── index.js
+├── api/
+│   └── .gitkeep
+├── assets/
+│   ├── icons/
+│   │   └── .gitkeep
+│   └── images/
+│       └── login/
+├── components/
+│   ├── dashboard/
+│   │   ├── Dashboard.jsx
+│   │   └── MenuButton.jsx
+│   ├── groups/
+│   │   ├── CapacityBar.jsx
+│   │   ├── GroupDetails.jsx
+│   │   └── GroupTable.jsx
+│   ├── home/
+│   │   └── home.jsx
+│   ├── layout/
+│   │   ├── Header.jsx
+│   │   ├── MainLayout.jsx
+│   │   └── Sidebar.jsx
+│   ├── requests/
+│   │   └── requests.jsx
+│   ├── schedule/
+│   │   ├── Schedule.jsx
+│   │   └── ScheduleTable.jsx
+│   ├── semaforo/
+│   │   └── SemaforoAcademico.jsx
+│   ├── student/
+│   │   ├── Filters.jsx
+│   │   ├── StudentCard.jsx
+│   │   ├── StudentDetail.jsx
+│   │   └── StudentList.jsx
+│   ├── traffic_light/
+│   │   └── traffic_light.jsx
+│   ├── ui/
+│   │   ├── ConfirmDialog.jsx
+│   │   ├── MetricCard.jsx
+│   │   ├── Modal.jsx
+│   │   └── StatusBadge.jsx
+│   └── user/
+│       └── User.jsx
+├── config/
+│   └── .gitkeep
+├── pages/
+│   ├── DashboardEstudiantePage.jsx
+│   ├── EstudiantesPage.jsx
+│   ├── GruposEstudiantePage.jsx
+│   ├── HomePage.jsx
+│   ├── LoginPage.jsx
+│   ├── RequestsPage.jsx
+│   ├── SchedulePage.jsx
+│   ├── TrafficLightPage.jsx
+│   └── UserPage.jsx
+├── services/
+│   └── AuthContext.jsx
+├── styles/
+│   ├── App.css
+│   ├── Dashboard.css
+│   ├── DashboardEstudiantePage.css
+│   ├── Groups.css
+│   ├── Home.css
+│   ├── index.css
+│   ├── Layout.css
+│   ├── Login.css
+│   ├── MateriaSelector.css
+│   ├── MenuButton.css
+│   ├── Requests.css
+│   ├── Schedule.css
+│   ├── Semaforo.css
+│   ├── Student.css
+│   ├── TrafficLight.css
+│   ├── UI.css
+│   └── User.css
 ```
 
 ## Prototipo Bajo nivel
@@ -88,7 +149,6 @@ Asegúrate de tener instalados **Node.js** y **npm** en tu sistema.
 Puedes verificarlo con los siguientes comandos:
 
 ```bash
-node -v
 npm -v
 ```
 
@@ -106,12 +166,12 @@ Este comando asegura que todas las dependencias de **react-scripts** se instalen
 
 ---
 
+
 ## Ejecución del Proyecto
 
 Una vez instaladas las dependencias, inicia el servidor de desarrollo con:
 
 ```bash
-npm start
 ```
 
 Esto abrirá automáticamente la aplicación en tu navegador en:  
@@ -129,6 +189,7 @@ npm install -g npm@latest
 ```
 
 ---
+```
 
 ## Notas Adicionales
 
