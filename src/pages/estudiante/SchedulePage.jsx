@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Dashboard from "../components/dashboard/Dashboard";
-import Schedule from "../components/schedule/Schedule";
-import "../styles/Schedule.css";
+import Dashboard from "../../components/dashboard/Dashboard";
+import Schedule from "../../components/schedule/Schedule";
+import "../../styles/Schedule.css";
 
 // Simulación de datos de usuario (puedes reemplazarlo por props o contexto)
 const user = {

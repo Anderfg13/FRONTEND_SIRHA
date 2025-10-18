@@ -3,11 +3,14 @@ import { useNavigate, useLocation } from "react-router-dom";
 import "../../styles/Dashboard.css";
 import logoECIJG from "../../assets/images/login/Logotipo.png";
 import MenuButton from "./MenuButton";
+import ProfileModal from '../ui/ProfileModal';
+import '../../styles/ProfileModal.css';
 
 export default function Dashboard({ user, children }) {
   const navigate = useNavigate();
   const location = useLocation(); // <-- Nuevo
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
 
   const handleNavigation = (path) => {
     navigate(path);
@@ -79,7 +82,7 @@ export default function Dashboard({ user, children }) {
                 : ""}
             </div>
           </div>
-          <div className="profile-icon" onClick={() => navigate("/usuario")}>
+          <div className="profile-icon" onClick={() => setProfileOpen(true)}>
             <span className="material-icons">person_outline</span>
           </div>
         </header>
@@ -102,6 +105,62 @@ export default function Dashboard({ user, children }) {
           </div>
         </div>
       )}
+      {/* Modal de perfil */}
+      <ProfileModal open={profileOpen} onClose={() => setProfileOpen(false)} user={{
+        nombre: nombreCompleto,
+        programa,
+        cargo: rol,
+        codigo: user?.codigo || user?.id || '',
+        facultad: user?.facultad || programa,
+        id: user?.id || user?.codigo || '',
+      }} />
     </div>
   );
 }
+
+// Para estudiante
+const userEstudiante = {
+  nombreCompleto: "Nombre Estudiante",
+  correo: "correo@escuelaing.edu.co",
+  rol: "Estudiante",
+  programa: "Ingeniería de Sistemas",
+  opcionesMenu: [
+    { nombre: "INICIO", ruta: "/dashboard", icono: "home" },
+    { nombre: "HORARIO", ruta: "/horario", icono: "calendar_today" },
+    { nombre: "SEMAFORO", ruta: "/semaforo", icono: "traffic" },
+    { nombre: "SOLICITUDES", ruta: "/solicitudes", icono: "description" }
+  ]
+};
+
+// Para decanatura
+const userDecanatura = {
+  nombreCompleto: "Nombre Decano",
+  correo: "decanatura@escuelaing.edu.co",
+  rol: "Decano",
+  programa: "Ingeniería de Sistemas",
+  opcionesMenu: [
+    { nombre: "INICIO", ruta: "/decanatura", icono: "home" },
+    { nombre: "SOLICITUDES", ruta: "/solicitudes", icono: "bookmark" },
+    { nombre: "SEMÁFORO", ruta: "/semaforo", icono: "traffic" },
+    { nombre: "ESTUDIANTES", ruta: "/estudiantes", icono: "groups" },
+    { nombre: "GRUPOS Y MATERIAS", ruta: "/grupos", icono: "menu_book" },
+    { nombre: "CONFIGURACIÓN ACADÉMICA", ruta: "/configuracion", icono: "settings" }
+  ]
+};
+
+// Para administrador
+const userAdmin = {
+  nombreCompleto: "Nombre Admin",
+  correo: "admin@escuelaing.edu.co",
+  rol: "Administrador",
+  opcionesMenu: [
+    { nombre: "INICIO", ruta: "/admin", icono: "home" },
+    { nombre: "HORARIO", ruta: "/horario", icono: "calendar_today" },
+    { nombre: "SEMÁFORO", ruta: "/semaforo", icono: "traffic" },
+    { nombre: "SOLICITUDES", ruta: "/solicitudes", icono: "bookmark" },
+    { nombre: "ESTUDIANTES", ruta: "/estudiantes", icono: "groups" },
+    { nombre: "GRUPOS Y MATERIAS", ruta: "/grupos", icono: "menu_book" },
+    { nombre: "REPORTES Y ESTADÍSTICAS", ruta: "/estadisticas", icono: "bar_chart" },
+    { nombre: "CONFIGURACIÓN Y PERIODOS", ruta: "/configuracion", icono: "settings" }
+  ]
+};

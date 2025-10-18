@@ -1,0 +1,246 @@
+.activity-summary {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  margin: 32px auto;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  max-width: 1200px;
+}
+.dashboard-grid {
+  display: flex;
+  gap: 32px;
+}
+.left-panel, .right-panel {
+  flex: 1;
+  min-width: 320px;
+}
+.metrics-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.metric-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background: #f5f5f5;
+}
+.metric-card.pending { background: #fffde7; color: #bfa600; }
+.metric-card.processing { background: #e3f2fd; color: #1976d2; }
+.metric-card.approved { background: #e8f5e9; color: #388e3c; }
+.metric-card.rejected { background: #ffebee; color: #c62828; }
+.metric-label { font-size: 1rem; }
+.metric-value { font-size: 1.3rem; font-weight: bold; }
+.chart-section {
+  margin-top: 32px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 18px 0 8px 0;
+  text-align: center;
+}
+.pie-chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+.calendar-section {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 18px 18px 10px 18px;
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.calendar-nav .nav-btn {
+  background: #eee;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin: 0 4px;
+}
+.calendar-month {
+  font-weight: bold;
+}
+.calendar-grid {
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-weight: bold;
+  color: #888;
+  text-align: center;
+  margin-bottom: 2px;
+}
+.calendar-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+.calendar-dates span {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  margin: 1px;
+  font-size: 0.98rem;
+}
+.prev-month, .next-month { color: #bbb; background: #f0f0f0; }
+.event-day.clases { background: #fffde7; color: #bfa600; }
+.event-day.receso-clases { background: #e3f2fd; color: #1976d2; }
+.event-day.aniversario { background: #ffe0b2; color: #e65100; }
+.current-day { border: 2px solid #1976d2; }
+.calendar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin-top: 10px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.98rem;
+}
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: inline-block;
+}
+.legend-color.aniversario { background: #ffe0b2; }
+.legend-color.recepcion { background: #e1bee7; }
+.legend-color.clases { background: #fffde7; }
+.legend-color.examenes-finales { background: #ffcdd2; }
+.legend-color.limite-entrega { background: #b2dfdb; }
+.legend-color.periodo-intermedio { background: #d1c4e9; }
+.legend-color.vacaciones { background: #b3e5fc; }
+.legend-color.receso-clases { background: #e3f2fd; }
+.alerts-section {
+  background: #fff3e0;
+  border-radius: 12px;
+  padding: 16px 18px 10px 18px;
+}
+.alerts-header {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.alert-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+.alert-item.clickable { cursor: pointer; background: #ffe082; }
+.alert-icon { font-size: 1.2rem; }
+.alert-details-panel {
+  background: #fffde7;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-top: 10px;
+}
+.solicitudes-expirando {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.solicitud-item {
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 4px;
+}
+.solicitud-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+.solicitud-estado.pendiente { color: #bfa600; }
+.solicitud-estado.rechazada { color: #c62828; }
+.solicitud-estado.aprobada { color: #388e3c; }
+.solicitud-estado[en\ proceso] { color: #1976d2; }
+.dias-restantes.urgente { color: #c62828; font-weight: bold; }
+.dias-restantes.normal { color: #888; }
+.panel-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.btn-revisar, .btn-aprobar, .btn-ver-todas, .btn-cerrar {
+  background: #b71c1c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 0.98rem;
+}
+.btn-aprobar { background: #388e3c; }
+.btn-ver-todas { background: #1976d2; }
+.btn-cerrar { background: #888; }
+@media (max-width: 900px) {
+  .dashboard-grid { flex-direction: column; gap: 18px; }
+  .left-panel, .right-panel { min-width: 0; }
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+/* Eventos de calendario para react-calendar */
+.react-calendar__tile.calendar-event-clases {
+  background: #fffde7 !important;
+  color: #bfa600 !important;
+  border-radius: 8px;
+}
+.react-calendar__tile.calendar-event-receso-clases {
+  background: #e3f2fd !important;
+  color: #1976d2 !important;
+  border-radius: 8px;
+}
+.react-calendar__tile.calendar-event-aniversario {
+  background: #ffe0b2 !important;
+  color: #e65100 !important;
+  border-radius: 8px;
+}
+.react-calendar__tile.calendar-event-domingo {
+  background: #f0f0f0 !important;
+  color: #bbb !important;
+  border-radius: 8px;
+}
+/* Día actual destacado */
+.react-calendar__tile--now {
+  border: 2px solid #1976d2 !important;
+  border-radius: 8px;
+}

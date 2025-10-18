@@ -1,6 +1,6 @@
 import React from "react";
-import Dashboard from "../components/dashboard/Dashboard";
-import Requests from "../components/requests/requests";
+import Dashboard from "../../components/dashboard/Dashboard";
+import Home from "../../components/home/home";
 
 // Simulación de datos de usuario (puedes reemplazarlo por props o contexto)
 const user = {
@@ -16,12 +16,12 @@ const user = {
   ]
 };
 
-function RequestsPage() {
+function HomePage() {
   return (
     <Dashboard user={user}>
-      <Requests />
+      <Home />
     </Dashboard>
   );
 }
 
-export default RequestsPage;
+export default HomePage;

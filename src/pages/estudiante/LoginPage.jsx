@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/Login.css";
-import logoECIJG from "../assets/images/login/Logotipo.png";
-import fondo from "../assets/images/login/Fondo.png";
+import "../../styles/Login.css";
+import logoECIJG from "../../assets/images/login/Logotipo.png";
+import fondo from "../../assets/images/login/Fondo.png";
 
 function LoginPage() {
   const [user, setUser] = useState("");
@@ -66,6 +66,28 @@ function LoginPage() {
             Ingresar
           </button>
         </form>
+
+        {/* Botones temporales para pruebas de roles */}
+        <div style={{ marginTop: '30px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <button
+            style={{ background: '#1e40af', color: 'white', fontWeight: 'bold', border: 'none', borderRadius: '8px', padding: '12px', cursor: 'pointer' }}
+            onClick={() => navigate('/dashboard')}
+          >
+            Ir a inicio ESTUDIANTE
+          </button>
+          <button
+            style={{ background: '#991b1b', color: 'white', fontWeight: 'bold', border: 'none', borderRadius: '8px', padding: '12px', cursor: 'pointer' }}
+            onClick={() => navigate('/decanatura')}
+          >
+            Ir a inicio DECANATURA
+          </button>
+          <button
+            style={{ background: '#065f46', color: 'white', fontWeight: 'bold', border: 'none', borderRadius: '8px', padding: '12px', cursor: 'pointer' }}
+            onClick={() => navigate('/admin')}
+          >
+            Ir a inicio ADMINISTRADOR
+          </button>
+        </div>
       </div>
     </div>
   );
