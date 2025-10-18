@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./home.css"; // Asegúrate de crear este archivo para los estilos
+import "../../styles/Home.css"; // Asegúrate de crear este archivo para los estilos
 
 function Home() {
   const navigate = useNavigate();

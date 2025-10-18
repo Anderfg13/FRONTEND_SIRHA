@@ -1,0 +1,260 @@
+/* Semaforo Academico CSS */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+.semaforo-content {
+  width: 100%;
+}
+
+/* Header */
+.semaforo-header {
+  margin-bottom: 25px;
+}
+
+.semaforo-header h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 5px;
+}
+
+.semaforo-header p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Student Selector */
+.student-selector {
+  background: #fff;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 25px;
+}
+
+.student-selector h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 15px;
+}
+
+.selector-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.selector-container label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 400px;
+}
+
+.student-dropdown {
+  width: 100%;
+  padding: 12px 40px 12px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none;
+}
+
+.student-dropdown:hover {
+  border-color: #990000;
+}
+
+.student-dropdown:focus {
+  border-color: #990000;
+  box-shadow: 0 0 0 3px rgba(153, 0, 0, 0.1);
+}
+
+.select-arrow {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #6b7280;
+}
+
+/* Semaforo Cards */
+.semaforo-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.semaforo-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s ease;
+}
+
+.semaforo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.card-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-icon .material-icons {
+  font-size: 32px;
+}
+
+.card-green .card-icon {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.card-yellow .card-icon {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.card-red .card-icon {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.card-content h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+  margin-bottom: 5px;
+}
+
+.card-count {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+/* Semester Tables */
+.semester-tables {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.semester-table {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 25px;
+}
+
+.semester-table h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 15px;
+}
+
+.semester-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.semester-table th {
+  background: linear-gradient(135deg, #990000, #4F0000);
+  color: #fff;
+  padding: 15px 12px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.semester-table td {
+  padding: 15px 12px;
+  border: 1px solid #e5e7eb;
+  vertical-align: top;
+}
+
+.materia-item {
+  padding: 10px 12px;
+  margin: 5px 0;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.materia-item.aprobada {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.materia-item.en-curso {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.materia-item.pendiente {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.no-data {
+  padding: 20px;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .semester-table {
+    overflow-x: auto;
+  }
+
+  .semester-table table {
+    min-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .semaforo-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .card-icon .material-icons {
+    font-size: 28px;
+  }
+
+  .card-count {
+    font-size: 28px;
+  }
+}
