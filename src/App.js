@@ -10,6 +10,12 @@ import RequestsPage from "./pages/estudiante/RequestsPage";
 import HomePage from "./pages/estudiante/HomePage";
 import DecanaturaPage from './pages/decanatura/DecanaturaPage';
 import AdminPage from './pages/admin/AdminPage';
+import ConfiguracionAdministrador from './pages/admin/ConfiguracionAdministrador';
+import EstudiantesAdministrador from './pages/admin/EstudiantesAdministrador';
+import GruposMateriasAdministrador from './pages/admin/GruposMateriasAdministrador';
+import HorarioAdministrador from './pages/admin/HorarioAdministrador';
+import ReportesAdministrador from './pages/admin/ReportesAdministrador';
+import SolicitudesAdministrador from './pages/admin/SolicitudesAdministrador';
 import SolicitudDecanatura from './pages/decanatura/SolicitudDecanatura';
 import SemaforoDecanatura from './pages/decanatura/SemaforoDecanatura';
 import EstudiantesDecanatura from './pages/decanatura/EstudiantesDecanatura';
@@ -60,6 +66,13 @@ function App() {
           <Route path="/decanatura/grupos" element={<GruposMateriaDecanatura user={userDecanatura} />} />
           <Route path="/decanatura/configuracion" element={<ConfiguracionDecanatura user={userDecanatura} />} />
           <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin/horario" element={<HorarioAdministrador />} />
+          <Route path="/admin/semaforo" element={<ReportesAdministrador />} />
+          <Route path="/admin/solicitudes" element={<SolicitudesAdministrador />} />
+          <Route path="/admin/estudiantes" element={<EstudiantesAdministrador />} />
+          <Route path="/admin/grupos" element={<GruposMateriasAdministrador />} />
+          <Route path="/admin/estadisticas" element={<ReportesAdministrador />} />
+          <Route path="/admin/configuracion" element={<ConfiguracionAdministrador />} />
           <Route path="/estudiantes-demo" element={<EstudiantesPage />} />
           <Route path="/grupos" element={<GruposEstudiantePage />} />
         </Routes>
