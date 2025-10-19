@@ -3,9 +3,10 @@ import Dashboard from "../../components/dashboard/Dashboard";
 import "../../styles/SolicitudDecanatura.css";
 
 const userDecanatura = {
-  nombreCompleto: "Decano/a Facultad",
+  nombreCompleto: "Nombre Decano",
   correo: "decanatura@escuelaing.edu.co",
-  rol: "Decanatura",
+  rol: "Decano",
+  programa: "Ingeniería de Sistemas",
   opcionesMenu: [
     { nombre: "INICIO", ruta: "/decanatura", icono: "home" },
     { nombre: "SOLICITUDES", ruta: "/decanatura/solicitudes", icono: "description" },
