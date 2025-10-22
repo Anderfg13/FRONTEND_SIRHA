@@ -12,7 +12,7 @@ const userAdmin = {
     { nombre: "HORARIO", ruta: "/admin/horario", icono: "calendar_today" },
     { nombre: "SEMÁFORO", ruta: "/admin/semaforo", icono: "traffic" },
     { nombre: "SOLICITUDES", ruta: "/admin/solicitudes", icono: "bookmark" },
-    { nombre: "ESTUDIANTES", ruta: "/admin/estudiantes", icono: "groups" },
+    { nombre: "USUARIOS", ruta: "/admin/estudiantes", icono: "groups" },
     { nombre: "GRUPOS Y MATERIAS", ruta: "/admin/grupos", icono: "menu_book" },
     { nombre: "REPORTES Y ESTADÍSTICAS", ruta: "/admin/estadisticas", icono: "bar_chart" },
     { nombre: "CONFIGURACIÓN Y PERIODOS", ruta: "/admin/configuracion", icono: "settings" }

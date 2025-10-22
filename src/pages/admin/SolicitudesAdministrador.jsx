@@ -13,7 +13,7 @@ const userAdmin = {
     { nombre: "HORARIO", ruta: "/admin/horario", icono: "calendar_today" },
     { nombre: "SEMÁFORO", ruta: "/admin/semaforo", icono: "traffic" },
     { nombre: "SOLICITUDES", ruta: "/admin/solicitudes", icono: "bookmark" },
-    { nombre: "ESTUDIANTES", ruta: "/admin/estudiantes", icono: "groups" },
+    { nombre: "USUARIOS", ruta: "/admin/estudiantes", icono: "groups" },
     { nombre: "GRUPOS Y MATERIAS", ruta: "/admin/grupos", icono: "menu_book" },
     { nombre: "REPORTES Y ESTADÍSTICAS", ruta: "/admin/estadisticas", icono: "bar_chart" },
     { nombre: "CONFIGURACIÓN Y PERIODOS", ruta: "/admin/configuracion", icono: "settings" }
@@ -25,8 +25,12 @@ const solicitudesMock = [
     id: "SOL-001",
     codigo: "2020102050",
     estudiante: "Anderson Fabián García Nieto",
-    materiaActual: "Arquitecturas de Software",
-    materiaSolicitada: "Desarrollo y Operaciones Software",
+    tipoSolicitud: "INSCRIPCION_GRUPO",
+    grupoProblemaId: "GRP-001",
+    materiaProblemaAcronimo: "ARSW",
+    grupoDestinoId: "GRP-002",
+    materiaDestinoAcronimo: "ARSW",
+    observaciones: "Solicito inscripción en el grupo 2 por conflicto de horario con Desarrollo y Operaciones Software",
     estado: "Pendiente",
     fechaCreacion: "2025-10-15",
     semestre: "7",
@@ -36,8 +40,12 @@ const solicitudesMock = [
     id: "SOL-002",
     codigo: "2019101234",
     estudiante: "María Camila Rodríguez López",
-    materiaActual: "Cálculo Integral",
-    materiaSolicitada: "Cálculo Vectorial",
+    tipoSolicitud: "CAMBIO_GRUPO",
+    grupoProblemaId: "GRP-003",
+    materiaProblemaAcronimo: "CAIN",
+    grupoDestinoId: "GRP-004",
+    materiaDestinoAcronimo: "CAIN",
+    observaciones: "Solicito cambio de grupo por disponibilidad de horario y mejor rendimiento académico",
     estado: "Aprobado",
     fechaCreacion: "2025-10-14",
     semestre: "3",
@@ -47,8 +55,12 @@ const solicitudesMock = [
     id: "SOL-003",
     codigo: "2021105678",
     estudiante: "Juan Carlos Martínez Gómez",
-    materiaActual: "Física II",
-    materiaSolicitada: "Electiva Técnica I",
+    tipoSolicitud: "CANCELAR_CLASE",
+    grupoProblemaId: "GRP-005",
+    materiaProblemaAcronimo: "FIS2",
+    grupoDestinoId: "",
+    materiaDestinoAcronimo: "",
+    observaciones: "Necesito cancelar esta materia por motivos de salud y carga académica excesiva",
     estado: "Rechazado",
     fechaCreacion: "2025-10-13",
     semestre: "5",
@@ -71,7 +83,7 @@ export default function SolicitudesAdministrador() {
   const columnasSolicitudes = [
     { key: "codigo", header: "Código" },
     { key: "estudiante", header: "Nombre del estudiante" },
-    { key: "materiaSolicitada", header: "Materia solicitada" }
+    { key: "materiaProblemaAcronimo", header: "Materia" }
   ];
 
   const handleAprobar = () => {

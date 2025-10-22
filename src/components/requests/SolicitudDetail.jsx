@@ -18,6 +18,14 @@ const SolicitudDetail = ({
 }) => {
   const [comentario, setComentario] = useState("");
 
+  const tiposLabels = {
+    "INSCRIPCION_GRUPO": "Inscripción de grupo",
+    "CANCELAR_CLASE": "Cancelar clase",
+    "CAMBIO_GRUPO": "Cambio de grupo",
+    "HOMOLOGACION": "Homologación",
+    "OTRO": "Otro"
+  };
+
   if (!solicitud) {
     return (
       <div style={{
@@ -55,10 +63,28 @@ const SolicitudDetail = ({
           <strong>Código de la solicitud:</strong> {solicitud.id}
         </div>
         <div style={{ marginBottom: "10px" }}>
-          <strong>Materia actual:</strong> {solicitud.materiaActual}
+          <strong>Tipo de solicitud:</strong> {tiposLabels[solicitud.tipoSolicitud] || solicitud.tipoSolicitud}
         </div>
+        {solicitud.grupoProblemaId && (
+          <div style={{ marginBottom: "10px" }}>
+            <strong>Grupo Problema ID:</strong> {solicitud.grupoProblemaId}
+          </div>
+        )}
         <div style={{ marginBottom: "10px" }}>
-          <strong>Materia solicitada:</strong> {solicitud.materiaSolicitada}
+          <strong>Materia Problema:</strong> {solicitud.materiaProblemaAcronimo}
+        </div>
+        {solicitud.grupoDestinoId && (
+          <div style={{ marginBottom: "10px" }}>
+            <strong>Grupo Destino ID:</strong> {solicitud.grupoDestinoId}
+          </div>
+        )}
+        {solicitud.materiaDestinoAcronimo && (
+          <div style={{ marginBottom: "10px" }}>
+            <strong>Materia Destino:</strong> {solicitud.materiaDestinoAcronimo}
+          </div>
+        )}
+        <div style={{ marginBottom: "10px" }}>
+          <strong>Observaciones:</strong> {solicitud.observaciones}
         </div>
         <div style={{ marginBottom: "10px" }}>
           <strong>Estado:</strong> {solicitud.estado}
