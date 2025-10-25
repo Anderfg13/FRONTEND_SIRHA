@@ -1,26 +1,40 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../../api/axios";
 import "../../styles/Login.css";
 import logoECIJG from "../../assets/images/login/Logotipo.png";
 import fondo from "../../assets/images/login/Fondo.png";
+import axios from "axios";
 
 function LoginPage() {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Validar que los campos no estén vacíos
     if (!user.trim() || !password.trim()) {
       alert("Por favor ingrese usuario y contraseña");
       return;
     }
-    
-    // Aquí podrías validar el usuario y contraseña
-    // Por ahora, simplemente redirige a /dashboard
-    navigate("/dashboard");
+    try {
+      // Llama al endpoint /login con email y password
+      const res = await api.post("/api/usuarios/login", {
+        email: user,
+        password: password
+      });
+      if (res.status === 200) {
+        alert("Login exitoso");
+        // Aquí puedes guardar token si el backend lo devuelve
+        navigate("/dashboard");
+      }
+    } catch (err) {
+      if (err.response && err.response.status === 401) {
+        alert("Credenciales inválidas");
+      } else {
+        alert("Error de conexión con el servidor");
+      }
+    }
   };
 
   return (

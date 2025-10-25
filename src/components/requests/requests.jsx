@@ -107,6 +107,13 @@ function Requests() {
   const [errors, setErrors] = useState({});
   const [alert, setAlert] = useState(null);
 
+  // Estados faltantes para el formulario avanzado
+  const [materiaProblemaAcronimo, setMateriaProblemaAcronimo] = useState("");
+  const [observaciones, setObservaciones] = useState("");
+  const [grupoProblemaId, setGrupoProblemaId] = useState("");
+  const [grupoDestinoId, setGrupoDestinoId] = useState("");
+  const [materiaDestinoAcronimo, setMateriaDestinoAcronimo] = useState("");
+
   const handleEnviar = () => {
     // Validar formulario
     const formData = {
