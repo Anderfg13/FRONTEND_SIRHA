@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "../../styles/Requests.css";
+import ErrorMessage, { Alert, ValidationSummary } from "../ui/ErrorMessage";
+import { isEmpty, hasMinLength } from "../../utils/validations";
 
 const tiposSolicitud = [
-  "Inscribir/Adicionar clase",
-  "Cancelar clase",
-  "Cambio de grupo",
-  "Homologación",
-  "Otro"
+  { value: "INSCRIPCION_GRUPO", label: "Inscripción de grupo" },
+  { value: "CANCELAR_CLASE", label: "Cancelar clase" },
+  { value: "CAMBIO_GRUPO", label: "Cambio de grupo" },
+  { value: "HOMOLOGACION", label: "Homologación" },
+  { value: "OTRO", label: "Otro" }
 ];
 
 const periodos = [
@@ -17,34 +19,81 @@ const periodos = [
 
 const historialEjemplo = [
   {
-    tipo: "Inscribir/Adicionar clase",
-    catalogo: "PRI2IS",
+    tipoSolicitud: "INSCRIPCION_GRUPO",
+    grupoProblemaId: "GRP-001",
+    materiaProblemaAcronimo: "PRI2IS",
+    grupoDestinoId: "GRP-002",
+    materiaDestinoAcronimo: "PRI2IS",
+    observaciones: "Solicito inscripción en el grupo 2 por conflicto de horario con otra materia",
     estado: "Aprobada",
     respuesta: "Su solicitud fue aprobada exitosamente.",
     fecha: "2025-02-10"
   },
   {
-    tipo: "Cancelar clase",
-    catalogo: "MAT101",
+    tipoSolicitud: "CANCELAR_CLASE",
+    grupoProblemaId: "GRP-005",
+    materiaProblemaAcronimo: "MAT101",
+    grupoDestinoId: "",
+    materiaDestinoAcronimo: "",
+    observaciones: "Necesito cancelar esta materia por motivos personales y de salud",
     estado: "Rechazada",
     respuesta: "No cumple con los requisitos para cancelar.",
     fecha: "2025-02-12"
   },
   {
-    tipo: "Cambio de grupo",
-    catalogo: "FIS2",
+    tipoSolicitud: "CAMBIO_GRUPO",
+    grupoProblemaId: "GRP-003",
+    materiaProblemaAcronimo: "FIS2",
+    grupoDestinoId: "GRP-004",
+    materiaDestinoAcronimo: "FIS2",
+    observaciones: "Solicito cambio de grupo 3 al grupo 4 por disponibilidad de horario",
     estado: "Remitida",
     respuesta: "Su solicitud fue remitida al departamento académico.",
     fecha: "2025-02-15"
   },
   {
-    tipo: "Homologación",
-    catalogo: "HOM202",
+    tipoSolicitud: "HOMOLOGACION",
+    grupoProblemaId: "",
+    materiaProblemaAcronimo: "HOM202",
+    grupoDestinoId: "",
+    materiaDestinoAcronimo: "",
+    observaciones: "Solicito homologación de materia cursada en universidad extranjera",
     estado: "Pendiente",
     respuesta: "Por favor adjunte el certificado de notas.",
     fecha: "2025-02-18"
   }
 ];
+
+/**
+ * Validación para formulario de solicitudes
+ */
+const validateSolicitud = (formData) => {
+  const errors = {};
+
+  // Validar tipo de solicitud
+  if (isEmpty(formData.tipoSolicitud)) {
+    errors.tipoSolicitud = 'Debe seleccionar un tipo de solicitud';
+  }
+
+  // Validar materia problema acrónimo
+  if (isEmpty(formData.materiaProblemaAcronimo)) {
+    errors.materiaProblemaAcronimo = 'El acrónimo de la materia es obligatorio';
+  } else if (!hasMinLength(formData.materiaProblemaAcronimo, 2)) {
+    errors.materiaProblemaAcronimo = 'El acrónimo debe tener al menos 2 caracteres';
+  }
+
+  // Validar observaciones
+  if (isEmpty(formData.observaciones)) {
+    errors.observaciones = 'Debe escribir las observaciones de su solicitud';
+  } else if (!hasMinLength(formData.observaciones, 10)) {
+    errors.observaciones = 'Las observaciones deben tener al menos 10 caracteres';
+  }
+
+  return {
+    isValid: Object.keys(errors).length === 0,
+    errors
+  };
+};
 
 function Requests() {
   const [tipoSolicitud, setTipoSolicitud] = useState("");
@@ -55,24 +104,61 @@ function Requests() {
   const [solicitudTemp, setSolicitudTemp] = useState("");
   const [periodo, setPeriodo] = useState(periodos[0]);
   const [historial, setHistorial] = useState(historialEjemplo);
+  const [errors, setErrors] = useState({});
+  const [alert, setAlert] = useState(null);
 
   const handleEnviar = () => {
-    if (tipoSolicitud && catalogo && solicitud) {
-      setHistorial([
-        ...historial,
-        {
-          tipo: tipoSolicitud,
-          catalogo,
-          estado: "Pendiente",
-          respuesta: "En revisión.",
-          fecha: new Date().toISOString().slice(0, 10)
-        }
-      ]);
-      setTipoSolicitud("");
-      setGrupo("");
-      setCatalogo("");
-      setSolicitud("");
+    // Validar formulario
+    const formData = {
+      tipoSolicitud,
+      materiaProblemaAcronimo,
+      observaciones
+    };
+
+    const validation = validateSolicitud(formData);
+
+    if (!validation.isValid) {
+      setErrors(validation.errors);
+      setAlert({
+        type: 'error',
+        message: 'Por favor complete todos los campos obligatorios correctamente'
+      });
+      return;
     }
+
+    // Si la validación es exitosa, crear solicitud
+    setHistorial([
+      ...historial,
+      {
+        tipoSolicitud,
+        grupoProblemaId,
+        materiaProblemaAcronimo,
+        grupoDestinoId,
+        materiaDestinoAcronimo,
+        observaciones,
+        estado: "Pendiente",
+        respuesta: "En revisión.",
+        fecha: new Date().toISOString().slice(0, 10)
+      }
+    ]);
+
+    // Limpiar formulario y errores
+    setTipoSolicitud("");
+    setGrupoProblemaId("");
+    setMateriaProblemaAcronimo("");
+    setGrupoDestinoId("");
+    setMateriaDestinoAcronimo("");
+    setObservaciones("");
+    setErrors({});
+
+    // Mostrar mensaje de éxito
+    setAlert({
+      type: 'success',
+      message: '✓ Solicitud enviada exitosamente'
+    });
+
+    // Auto-cerrar alerta después de 3 segundos
+    setTimeout(() => setAlert(null), 3000);
   };
 
   return (
