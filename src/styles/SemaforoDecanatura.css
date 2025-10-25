@@ -1,0 +1,396 @@
+/* Tabla de materias por semestre */
+.decanatura-materias-table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 12px 8px;
+	margin-top: 18px;
+}
+.decanatura-materias-table th {
+	background: #990000;
+	color: #fff;
+	border-radius: 10px;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 12px 0;
+	text-align: center;
+}
+.decanatura-materias-table td {
+	vertical-align: top;
+	min-width: 180px;
+	background: #f8f8f8;
+	border-radius: 10px;
+	padding: 10px;
+}
+.decanatura-materia-item {
+	margin-bottom: 8px;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.decanatura-materia-badge {
+	border-radius: 6px;
+	padding: 4px 12px;
+	font-weight: 600;
+	margin-right: 8px;
+	color: #fff;
+	display: inline-block;
+	margin-bottom: 4px;
+}
+.decanatura-materia-aprobada {
+	background: #059669;
+}
+.decanatura-materia-curso {
+	background: #f59e0b;
+}
+.decanatura-materia-pendiente {
+	background: #dc2626;
+}
+.decanatura-materia-estado {
+	font-weight: 400;
+	color: #374151;
+}
+/* Materias por semestre - semáforo académico */
+.decanatura-materia-item {
+	margin-bottom: 8px;
+	display: flex;
+	align-items: center;
+}
+
+.decanatura-materia-badge {
+	border-radius: 6px;
+	padding: 4px 12px;
+	font-weight: 600;
+	margin-right: 8px;
+	color: #fff;
+	display: inline-block;
+}
+.decanatura-materia-aprobada {
+	background: #059669;
+}
+.decanatura-materia-curso {
+	background: #f59e0b;
+}
+.decanatura-materia-pendiente {
+	background: #dc2626;
+}
+.decanatura-materia-estado {
+	font-weight: 400;
+	color: #374151;
+}
+/* Botón de semestre con color rojo oscuro igual al menú lateral */
+.decanatura-semestre-btn {
+	background: #990000;
+	color: #fff;
+	border-radius: 10px;
+	padding: 16px 0;
+	font-weight: 600;
+	font-size: 16px;
+	text-align: center;
+	margin: 0 8px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+	border: none;
+	transition: background 0.2s;
+}
+.decanatura-semestre-btn:hover {
+	background: #b30000;
+}
+.decanatura-content-full {
+	display: flex;
+	flex-direction: column;
+	min-height: calc(100vh - 64px);
+	width: 100%;
+	background: #f7f7f7;
+	padding: 32px 0 0 0;
+	box-sizing: border-box;
+}
+
+.decanatura-semaforo-container {
+	max-width: 1100px;
+	margin: 0 auto;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+/* Expande el área principal para ocupar todo el espacio disponible debajo del header */
+.decanatura-content-full {
+	display: flex;
+	flex-direction: column;
+	min-height: calc(100vh - 64px); /* Ajusta según el alto del header */
+	width: 100%;
+	background: #f7f7f7;
+	padding: 32px 0 0 0;
+	box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html, body {
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+body {
+	font-family: "Work Sans", sans-serif;
+	background: #f9fafb;
+	color: #1f2937;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.decanatura-content-section {
+	position: relative;
+	padding: 20px;
+}
+
+.decanatura-student-selector {
+	background: white;
+	border-radius: 12px;
+	padding: 25px;
+	margin-top: 100px;
+	margin-bottom: 30px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	border: 1px solid #e5e7eb;
+}
+
+.decanatura-student-selector h2 {
+	font-family: "Work Sans", sans-serif;
+	font-size: 24px;
+	font-weight: 600;
+	color: #374151;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.decanatura-selector-container {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+.decanatura-selector-container label {
+	font-family: "Work Sans", sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	color: #374151;
+}
+
+.decanatura-select-wrapper {
+	position: relative;
+	display: inline-block;
+}
+
+.decanatura-student-dropdown {
+	font-family: "Work Sans", sans-serif;
+	width: 100%;
+	padding: 12px 40px 12px 16px;
+	font-size: 16px;
+	border: 2px solid #d1d5db;
+	border-radius: 8px;
+	background: white;
+	color: #374151;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.decanatura-student-dropdown:focus {
+	outline: none;
+	border-color: var(--color-principal);
+	box-shadow: 0 0 0 3px rgba(153, 0, 0, 0.1);
+}
+
+.decanatura-student-dropdown:hover {
+	border-color: #9ca3af;
+}
+
+.decanatura-select-arrow {
+	position: absolute;
+	right: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #6b7280;
+	pointer-events: none;
+	transition: transform 0.3s ease;
+}
+
+.decanatura-student-dropdown:focus + .decanatura-select-arrow {
+	transform: translateY(-50%) rotate(180deg);
+	color: var(--color-principal);
+}
+
+.decanatura-semaforo-container {
+	display: flex;
+	min-height: 100vh;
+	width: 100vw;
+}
+
+.decanatura-semaforo-cards {
+	display: flex;
+	gap: 25px;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.decanatura-semaforo-card {
+	flex: 1;
+	padding: 30px 25px;
+	border-radius: 16px;
+	text-align: center;
+	font-weight: 600;
+	font-size: 20px;
+	color: white;
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+	transition: all 0.3s ease;
+	min-height: 120px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation: decanatura-fadeInUp 0.6s ease-out;
+}
+
+.decanatura-semaforo-card:nth-child(2) {
+	animation-delay: 0.1s;
+}
+.decanatura-semaforo-card:nth-child(3) {
+	animation-delay: 0.2s;
+}
+
+.decanatura-card-green {
+	background: linear-gradient(135deg, #059669, #10b981);
+}
+.decanatura-card-yellow {
+	background: linear-gradient(135deg, #d97706, #f59e0b);
+}
+.decanatura-card-red {
+	background: linear-gradient(135deg, #dc2626, #ef4444);
+}
+
+.decanatura-semester-tables {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	width: 100%;
+}
+
+.decanatura-semester-table {
+	background: #fff;
+	border-radius: 16px;
+	padding: 30px;
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+	width: 100%;
+	animation: decanatura-fadeInUp 0.6s ease-out;
+}
+.decanatura-semester-table:nth-child(2) {
+	animation-delay: 0.3s;
+}
+
+.decanatura-semester-table h3 {
+	color: #1f2937;
+	margin-bottom: 25px;
+	font-size: 22px;
+	font-weight: 600;
+	border-bottom: 3px solid var(--color-principal);
+	padding-bottom: 12px;
+}
+
+.decanatura-semester-table table {
+	width: 100%;
+	border-collapse: collapse;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.decanatura-semester-table thead {
+	background: linear-gradient(135deg, var(--color-principal), #dc2626);
+	color: white;
+}
+
+.decanatura-semester-table th {
+	padding: 18px 16px;
+	text-align: left;
+	font-weight: 600;
+	font-size: 15px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	color: #ffffff;
+}
+
+.decanatura-semester-table tbody tr {
+	border-bottom: 1px solid #e5e7eb;
+	transition: all 0.3s ease;
+}
+
+.decanatura-semester-table tbody tr:hover {
+	background-color: #f8fafc;
+	transform: scale(1.01);
+}
+
+.decanatura-semester-table tbody tr:nth-child(even) {
+	background-color: #fafafa;
+}
+
+.decanatura-semester-table tbody tr:nth-child(even):hover {
+	background-color: #f0f4f8;
+}
+
+.decanatura-semester-table td {
+	padding: 16px;
+	color: #374151;
+	font-size: 14px;
+	font-weight: 500;
+	border: 1px solid #e5e7eb;
+}
+
+.decanatura-semester-table td:first-child {
+	font-weight: 600;
+	color: #1f2937;
+	background: #f3f4f6;
+}
+
+.decanatura-status-approved {
+	background-color: #d1fae5;
+	color: #065f46;
+	font-weight: 600;
+	border-radius: 6px;
+	padding: 4px 8px;
+}
+
+.decanatura-status-pending {
+	background-color: #fef3c7;
+	color: #92400e;
+	font-weight: 600;
+	border-radius: 6px;
+	padding: 4px 8px;
+}
+
+.decanatura-status-warning {
+	background-color: #fee2e2;
+	color: #991b1b;
+	font-weight: 600;
+	border-radius: 6px;
+	padding: 4px 8px;
+}
+
+@keyframes decanatura-fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

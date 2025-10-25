@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
@@ -41,8 +42,12 @@ const eventosDias = {
 export default function ActivitySummaryDecanatura() {
   const [showAlertDetails, setShowAlertDetails] = useState(false);
   const [calendarValue, setCalendarValue] = useState(new Date(2025, 9, 1)); // Octubre 2025
+  const navigate = useNavigate();
 
   const handleAlertClick = () => setShowAlertDetails((v) => !v);
+  const handleVerTodasSolicitudes = () => {
+    navigate("/decanatura/solicitudes");
+  };
 
   return (
     <div className="activity-summary">
@@ -202,7 +207,7 @@ export default function ActivitySummaryDecanatura() {
                   ))}
                 </div>
                 <div className="panel-actions">
-                  <button className="btn-ver-todas">Ver todas las solicitudes</button>
+                  <button className="btn-ver-todas" onClick={handleVerTodasSolicitudes}>Ver todas las solicitudes</button>
                   <button className="btn-cerrar" onClick={() => setShowAlertDetails(false)}>Cerrar</button>
                 </div>
               </div>
