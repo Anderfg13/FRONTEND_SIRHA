@@ -19,7 +19,7 @@ function LoginPage() {
     }
     try {
       // Llama al endpoint /login con email y password
-      const res = await api.post("/api/usuarios/login", {
+      const res = await api.post("/api/auth/login", {
         email: user,
         password: password
       });
