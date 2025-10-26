@@ -15,6 +15,7 @@ import EstudiantesAdministrador from './pages/admin/EstudiantesAdministrador';
 import GruposMateriasAdministrador from './pages/admin/GruposMateriasAdministrador';
 import HorarioAdministrador from './pages/admin/HorarioAdministrador';
 import ReportesAdministrador from './pages/admin/ReportesAdministrador';
+import SemaforoAdministrador from './pages/admin/SemaforoAdministrador';
 import SolicitudesAdministrador from './pages/admin/SolicitudesAdministrador';
 import SolicitudDecanatura from './pages/decanatura/SolicitudDecanatura';
 import SemaforoDecanatura from './pages/decanatura/SemaforoDecanatura';
@@ -67,7 +68,7 @@ function App() {
           <Route path="/decanatura/configuracion" element={<ConfiguracionDecanatura user={userDecanatura} />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/admin/horario" element={<HorarioAdministrador />} />
-          <Route path="/admin/semaforo" element={<ReportesAdministrador />} />
+          <Route path="/admin/semaforo" element={<SemaforoAdministrador />} />
           <Route path="/admin/solicitudes" element={<SolicitudesAdministrador />} />
           <Route path="/admin/estudiantes" element={<EstudiantesAdministrador />} />
           <Route path="/admin/grupos" element={<GruposMateriasAdministrador />} />
