@@ -334,7 +334,8 @@ function Requests() {
           </div>
           <div className="requests-historial-list">
             {historial.map((item) => {
-              const tipoLabel = tiposSolicitud.find(t => t.value === item.tipoSolicitud)?.label || item.tipoSolicitud;
+              const tipoObj = tiposSolicitud.find(t => t.value === item.tipoSolicitud);
+              const tipoLabel = tipoObj ? tipoObj.label : String(item.tipoSolicitud);
               return (
                 <div key={`${item.fecha}-${item.tipoSolicitud}-${item.materiaProblemaAcronimo}`} className="requests-historial-item">
                   <div><b>Tipo Solicitud:</b> {tipoLabel}</div>
