@@ -1,0 +1,208 @@
+/* Asegura que el contenido esté alineado correctamente debajo del header */
+.main-content {
+  margin-left: 260px;      /* ancho del sidebar */
+  padding-top: 60px;       /* igual a la altura del header fijo */
+  min-height: 100vh;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Estilos para el encabezado del calendario */
+.schedule-header {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+  background: #fff;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  justify-content: flex-start;
+  position: relative;
+}
+
+/* Botón del menú desplegable del calendario */
+.schedule-dropdown-btn {
+  background: none;
+  border: none;
+  font: inherit;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0;
+  outline: none;
+}
+
+/* Flecha del menú desplegable */
+.schedule-arrow {
+  font-size: 1.5rem;
+  color: #a10000;
+  margin-left: 1rem;
+  transition: transform 0.2s;
+}
+
+/* Estilos para el menú desplegable del calendario */
+.schedule-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  z-index: 10;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Elementos de la lista en el menú desplegable */
+.schedule-dropdown li {
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+/* Estilos para los elementos de la lista al pasar el mouse o estar seleccionados */
+.schedule-dropdown li:hover,
+.schedule-dropdown li.selected {
+  background: #f3f3f3;
+  color: #a10000;
+}
+
+/* Menú desplegable mejorado */
+.schedule-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  margin-top: 2px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Elementos del menú desplegable */
+.schedule-dropdown-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.schedule-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.schedule-dropdown-item:hover {
+  background-color: #f5f5f5;
+  color: #a10000;
+  font-weight: 500;
+}
+
+/* Contenedor del horario */
+.schedule-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  margin-top: 1.2rem;
+}
+
+/* Envoltorio de la tabla de horario */
+.schedule-table-wrapper {
+  overflow-x: auto;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* Tabla del horario */
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.schedule-table thead {
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+.schedule-table th {
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  border: 1px solid #ddd;
+  background: linear-gradient(135deg, #f5f5f5 0%, #f9f9f9 100%);
+}
+
+.schedule-table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+
+.schedule-table tbody tr {
+  transition: background-color 0.2s;
+}
+
+.schedule-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.schedule-table tbody tr:nth-child(odd) {
+  background-color: #fafafa;
+}
+
+/* Sección del horario */
+.schedule-section {
+  margin-bottom: 2rem;
+}
+
+.schedule-section h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  border-left: 4px solid #a10000;
+  padding-left: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .schedule-container {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  .schedule-table {
+    font-size: 0.85rem;
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    padding: 8px;
+  }
+
+  .schedule-header {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .schedule-dropdown-menu {
+    min-width: 100%;
+  }
+}
