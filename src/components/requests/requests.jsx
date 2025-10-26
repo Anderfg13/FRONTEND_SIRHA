@@ -97,22 +97,27 @@ const validateSolicitud = (formData) => {
 
 function Requests() {
   const [tipoSolicitud, setTipoSolicitud] = useState("");
-  const [grupo, setGrupo] = useState("");
-  const [catalogo, setCatalogo] = useState("");
-  const [solicitud, setSolicitud] = useState("");
+  const [grupoProblemaId, setGrupoProblemaId] = useState("");
+  const [materiaProblemaAcronimo, setMateriaProblemaAcronimo] = useState("");
+  const [grupoDestinoId, setGrupoDestinoId] = useState("");
+  const [materiaDestinoAcronimo, setMateriaDestinoAcronimo] = useState("");
+  const [observaciones, setObservaciones] = useState("");
   const [solicitudModalOpen, setSolicitudModalOpen] = useState(false);
-  const [solicitudTemp, setSolicitudTemp] = useState("");
   const [periodo, setPeriodo] = useState(periodos[0]);
   const [historial, setHistorial] = useState(historialEjemplo);
   const [errors, setErrors] = useState({});
   const [alert, setAlert] = useState(null);
 
-  // Estados faltantes para el formulario avanzado
-  const [materiaProblemaAcronimo, setMateriaProblemaAcronimo] = useState("");
-  const [observaciones, setObservaciones] = useState("");
-  const [grupoProblemaId, setGrupoProblemaId] = useState("");
-  const [grupoDestinoId, setGrupoDestinoId] = useState("");
-  const [materiaDestinoAcronimo, setMateriaDestinoAcronimo] = useState("");
+  // Función para limpiar errores cuando el usuario modifica un campo
+  const clearFieldError = (fieldName) => {
+    if (errors[fieldName]) {
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[fieldName];
+        return newErrors;
+      });
+    }
+  };
 
   const handleEnviar = () => {
     // Validar formulario
@@ -171,6 +176,19 @@ function Requests() {
   return (
     <div className="requests-root">
       <h1 className="requests-title">Solicitudes</h1>
+      
+      {/* Mostrar alerta si existe */}
+      {alert && (
+        <Alert
+          type={alert.type}
+          message={alert.message}
+          onClose={() => setAlert(null)}
+        />
+      )}
+
+      {/* Mostrar resumen de errores si existen */}
+      <ValidationSummary errors={errors} />
+
       <div className="requests-content">
         <form className="requests-form">
           <table className="requests-table">
@@ -180,47 +198,79 @@ function Requests() {
                 <td>
                   <select
                     value={tipoSolicitud}
-                    onChange={e => setTipoSolicitud(e.target.value)}
+                    onChange={e => {
+                      setTipoSolicitud(e.target.value);
+                      clearFieldError('tipoSolicitud');
+                    }}
+                    className={errors.tipoSolicitud ? 'error' : ''}
                   >
                     <option value="">Seleccione...</option>
-                    {tiposSolicitud.map((tipo, idx) => (
-                      <option key={idx} value={tipo}>{tipo}</option>
+                    {tiposSolicitud.map((tipo) => (
+                      <option key={tipo.value} value={tipo.value}>
+                        {tipo.label}
+                      </option>
                     ))}
                   </select>
+                  <ErrorMessage error={errors.tipoSolicitud} />
                 </td>
-                <td className="requests-label"><b>Grupo/Clase:</b></td>
+                <td className="requests-label"><b>Grupo Problema:</b></td>
                 <td>
                   <input
                     type="text"
-                    value={grupo}
-                    onChange={e => setGrupo(e.target.value)}
+                    value={grupoProblemaId}
+                    onChange={e => setGrupoProblemaId(e.target.value)}
+                    placeholder="Ej: GRP-001"
                   />
                 </td>
               </tr>
               <tr>
-                <td className="requests-label"><b>No Catalogo:</b></td>
+                <td className="requests-label"><b>Materia Problema:</b></td>
                 <td>
                   <input
                     type="text"
-                    value={catalogo}
-                    onChange={e => setCatalogo(e.target.value)}
+                    value={materiaProblemaAcronimo}
+                    onChange={e => {
+                      setMateriaProblemaAcronimo(e.target.value);
+                      clearFieldError('materiaProblemaAcronimo');
+                    }}
+                    placeholder="Ej: PRI2IS"
+                    className={errors.materiaProblemaAcronimo ? 'error' : ''}
+                  />
+                  <ErrorMessage error={errors.materiaProblemaAcronimo} />
+                </td>
+                <td className="requests-label"><b>Grupo Destino:</b></td>
+                <td>
+                  <input
+                    type="text"
+                    value={grupoDestinoId}
+                    onChange={e => setGrupoDestinoId(e.target.value)}
+                    placeholder="Ej: GRP-002"
                   />
                 </td>
-                <td className="requests-label"><b>Solicitud:</b></td>
+              </tr>
+              <tr>
+                <td className="requests-label"><b>Materia Destino:</b></td>
+                <td>
+                  <input
+                    type="text"
+                    value={materiaDestinoAcronimo}
+                    onChange={e => setMateriaDestinoAcronimo(e.target.value)}
+                    placeholder="Ej: PRI2IS"
+                  />
+                </td>
+                <td className="requests-label"><b>Observaciones:</b></td>
                 <td>
                   <button
                     type="button"
                     className="requests-solicitud-btn"
-                    onClick={() => {
-                      setSolicitudTemp(solicitud);
-                      setSolicitudModalOpen(true);
-                    }}
+                    onClick={() => setSolicitudModalOpen(true)}
                   >
-                    {solicitud ? "Modificar Solicitud" : "Escribir Solicitud"}
+                    {observaciones ? "Modificar Observaciones" : "Escribir Observaciones"}
                   </button>
-                  {solicitud && (
-                    <div className="requests-solicitud-preview">{solicitud}</div>
+                  {observaciones && (
+                    <div className="requests-solicitud-preview">{observaciones}</div>
                   )}
+                  <ErrorMessage error={errors.observaciones} />
                 </td>
               </tr>
             </tbody>
@@ -231,36 +281,44 @@ function Requests() {
             </button>
           </div>
         </form>
+
+        {/* Modal para observaciones */}
         {solicitudModalOpen && (
           <div className="requests-modal-overlay">
             <div className="requests-modal-small">
-              <h3 className="requests-modal-title">Solicitud</h3>
+              <h3 className="requests-modal-title">Observaciones de la Solicitud</h3>
               <textarea
                 className="requests-modal-textarea"
-                value={solicitudTemp}
-                onChange={e => setSolicitudTemp(e.target.value)}
-                rows={4}
-                placeholder="Escribe tu solicitud aquí..."
+                value={observaciones}
+                onChange={e => {
+                  setObservaciones(e.target.value);
+                  clearFieldError('observaciones');
+                }}
+                rows={6}
+                placeholder="Escribe las observaciones de tu solicitud aquí... (mínimo 10 caracteres)"
               />
               <div className="requests-modal-actions">
                 <button
                   className="requests-btn"
                   type="button"
-                  onClick={() => {
-                    setSolicitud(solicitudTemp);
-                    setSolicitudModalOpen(false);
-                  }}
-                >Guardar</button>
+                  onClick={() => setSolicitudModalOpen(false)}
+                >
+                  Guardar
+                </button>
                 <button
                   className="requests-btn"
                   type="button"
                   style={{ background: '#bbb', color: '#222', marginLeft: 8 }}
                   onClick={() => setSolicitudModalOpen(false)}
-                >Cancelar</button>
+                >
+                  Cancelar
+                </button>
               </div>
             </div>
           </div>
         )}
+
+        {/* Historial de solicitudes */}
         <div className="requests-historial-box">
           <div className="requests-historial-header">
             <span className="requests-historial-title">Historial Solicitudes</span>
@@ -269,24 +327,27 @@ function Requests() {
               value={periodo}
               onChange={e => setPeriodo(e.target.value)}
             >
-              {periodos.map((p, idx) => (
-                <option key={idx} value={p}>{p}</option>
+              {periodos.map((p) => (
+                <option key={p} value={p}>{p}</option>
               ))}
             </select>
           </div>
           <div className="requests-historial-list">
-            {historial.map((item, idx) => (
-              <div key={idx} className="requests-historial-item">
-                <div><b>Tipo Solicitud:</b> {item.tipo}</div>
-                <div><b>N Catálogo:</b> {item.catalogo}</div>
-                <div><b>Estado Solicitud:</b> {item.estado}</div>
-              </div>
-            ))}
+            {historial.map((item) => {
+              const tipoLabel = tiposSolicitud.find(t => t.value === item.tipoSolicitud)?.label || item.tipoSolicitud;
+              return (
+                <div key={`${item.fecha}-${item.tipoSolicitud}-${item.materiaProblemaAcronimo}`} className="requests-historial-item">
+                  <div><b>Tipo Solicitud:</b> {tipoLabel}</div>
+                  <div><b>Materia:</b> {item.materiaProblemaAcronimo}</div>
+                  <div><b>Estado:</b> {item.estado}</div>
+                  <div><b>Fecha:</b> {item.fecha}</div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
     </div>
   );
-
 }
 export default Requests;
