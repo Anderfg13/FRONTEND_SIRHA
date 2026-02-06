@@ -24,6 +24,7 @@ SIRHA-Front es la interfaz de usuario para la gestión de solicitudes de cambios
 - Jared Sebastian Farfan Guevara
 - Kevin Arturo Cuitiva Pardo
 - Maria Paula Rodriguez Muñoz
+- Pablo Andres Melo Garcia (Profesor)
 
 ## Caso de Negocio
 El objetivo principal es darles a estudiantes, profesores y decanaturas una plataforma con herramientas claras para crear, evaluar y aprobar/rechazar solicitudes de cambio de horarios, optimizando la gestión académica y reduciendo conflictos de cupos y cargas.
@@ -254,3 +255,20 @@ npm install
 - Estudiantes (Decanatura)
 
 ![Estudiante](./images/Decanatura/ESTUDIANTES_DECANATURA.png)
+
+## Agradecimientos especiales
+
+Un enorme agradecimiento a todos los integrantes de este proyecto, cuyo compromiso, esfuerzo y trabajo en equipo fueron fundamentales para sacarlo adelante, incluso frente a los retos y dificultades que se presentaron durante el proceso:
+
+- **Anderson Fabian Garcia Nieto**
+- **David Alejandro Patacón Henao**
+- **Felipe Eduardo Calviche Gallego**
+- **Jared Sebastián Farfán Guevara**
+- **Kevin Arturo Cuitiva Pardo**
+- **María Paula Rodríguez Muñoz**
+
+Asimismo, un reconocimiento especial a **Pablo Andrés Melo García (Profesor)**, por su acompañamiento, orientación y apoyo constante a lo largo del desarrollo del proyecto, aportando una guía clave para que este trabajo llegara a buen término.
+
+Este proyecto es el resultado del esfuerzo colectivo, la resiliencia y la colaboración de todos los involucrados.
+
+
